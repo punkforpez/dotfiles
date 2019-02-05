@@ -1,4 +1,6 @@
 # .zshrc - github.com/punkforpez
+
+
 # Set the prompt to something more pleasing
 PS1='%F{green}%m %f%b%# '
 
@@ -8,19 +10,21 @@ PS1='%F{green}%m %f%b%# '
 # Boring $PATH business:
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/local/bin"
 
-# Navigation
+# Basic Navigation
 alias h="cd ~"
 alias up="cd .."
 
 # Void specific package management.
 # Using vpm wrapper
 alias vpm='sudo vpm'
+alias xbi='sudo xbps-install'
+alias xbrm='sudo xbps-remove -o'
 
 # Distro agnostic package systems.
 alias apt-get="sudo apt-get"
 alias pacman='sudo pacman'
 alias apt='sudo apt'
-alias xi='sudo xbps-install'
+alias xbi='sudo xbps-install'
 alias dnf='sudo dnf'
 
 # Taskbook specific
@@ -52,21 +56,10 @@ alias mem='top -l1 | grep PhysMem'
 alias cat='bat'
 alias dfc='clear; echo; dfc -Ms; echo;'
 
-# For fun.
-alias q='clear; quote; echo'
-alias cow='clear; fortune | cowsay; echo'
-alias tree='alder'
-
 # Editing and sourcing .zshrc
 alias zedit="vim ~/.zshrc"
 alias zmouse="mousepad ~/.zshrc"
 alias zsource="source ~/.zshrc"
-alias zemacs="emacs ~/.zshrc"
-
-# Git aliases
-alias glog="git log"
-alias gpretty="git log --pretty=oneline"
-alias ggraph="git log --graph --oneline --decorate --all"
 
 # Move and follow file to new dir:
 # Example (from ~) mvf test.txt ~/downloads will move the file
@@ -78,6 +71,7 @@ function mvf {
     mv $* && cd ${*[-1]%/*}
   fi
 }
+
 # Copy and follow file:
 # Just like the mvf() function but this one only copies.
 function cpf {
@@ -88,11 +82,5 @@ function cpf {
   fi
 }
 
-# Use alt+s to insert sudo
-# !!! Disabled for now
-#insert_sudo () { zle beginning-of-line; zle -U "sudo " }
-#zle -N insert-sudo insert_sudo
-#bindkey "^[s" insert-sudo
-
-# Must be last in .zshrc
+# Syntax Highlighting - must be last in .zshrc
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

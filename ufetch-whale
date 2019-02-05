@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# Ufetch 
+# Original code from https://github.com/jschx/ufetch
+# > My Modifications include making it more slim,
+# > making it more horizontal, cleaning up the lines,
+# > and adding the whale.  I also made it more minimal in nature
+
+# Get system info
+user="${USER} @ $(hostname)"
+os='Manjaro Linux'
+kernel="$(uname -sr)"
+uptime="$(uptime -p | sed 's/up //')"
+packages="$(pacman -Q | wc -l) pkg"
+shell="$(basename ${SHELL})"
+#pidof systemd && init="systemd" || init="Not systemd"
+
+# Uncomment below to have it display the current window manager.
+# I have this disabled so it doesn't show up incorrectly when
+# running this script through SSH (which I do a ton).
+
+#if [ -z "${WM}" ]; then
+#	if [ "${XDG_CURRENT_DESKTOP}" ]; then
+#		envtype='DE'
+#		WM="${XDG_CURRENT_DESKTOP}"
+#	elif [ "${DESKTOP_SESSION}" ]; then
+#		envtype='DE'
+#		WM="${DESKTOP_SESSION}"
+#	else
+#		envtype='WM'
+#		WM="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
+#	fi
+#else
+#	envtype='WM'
+#fi
+
+
+# Define Colours
+bold="$(tput bold)"
+black="$(tput setaf 0)"
+red="$(tput setaf 1)"
+green="$(tput setaf 2)"
+yellow="$(tput setaf 3)"
+blue="$(tput setaf 4)"
+magenta="$(tput setaf 5)"
+cyan="$(tput setaf 6)"
+white="$(tput setaf 7)"
+reset="$(tput sgr0)"
+
+# For displaying colors in the script
+lc="${reset}${bold}${green}"	# labels
+bc="${reset}${bold}${blue}"		# blue for the whale
+nc="${reset}${bold}${green}"	# user and hostname
+ic="${reset}"					# info
+c0="${reset}${bold}${green}"	# first color
+c1="${reset}${green}"			# second color
+
+# Print the output
+cat <<EOF
+
+${bc}        .-'	  	    ${lc}%  ${lc}${user}${reset}
+${bc}    '--./ /     _.---.	     ${lc}  ${ic}${os}${reset}
+${bc}    '-,  (__..-'       \     ${lc}  ${ic}${kernel}${reset}
+${bc}       \          ${sc}.${fc}     |    ${lc}  ${ic}${uptime}${reset}
+${bc}        ',.__.   ,__.--/     ${lc}  ${ic}${packages}${reset}
+${bc}          '._${sc}/_.'${sc}___.-'	     ${lc}  ${ic}${shell}${reset}
+
+EOF
