@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # prints a color text image of a tree
+# I don't remember where I found this.  Probably somewhere
+# on Reddit!
 
+echo
 echo -e "              [32m&&"
 echo -e "             [32m&&&&&"
 echo -e "           [32m&&&\/& &&&"
@@ -15,3 +18,4 @@ echo -e "             [33m\{\}\{           \`[32m&[33m\[32m&&"
 echo -e "             [33m{{}             [32m&&"
 echo -e "       [33m, -=-~{ .-^- _"
 echo -e "             \`."
+echo
