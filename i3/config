@@ -1,7 +1,6 @@
 # i3 config
 # github.com/punkforpez/i3
 
-
 # Set $mod to $win key
 set $mod Mod4
 
@@ -15,16 +14,16 @@ client.unfocused                #222222 #222222 #315858
 client.focused_inactive         #222222 #222222 #666666
 
 # Fix ugly titlebars
-new_window 1pixel                                                                  
+new_window 1pixel
 new_float 1pixel
 
 # Hide ugly window borders / horiz
 hide_edge_borders both
 
 # Window title font
-#font xft:Ubuntu Mono 11
-font xft:Dejavu Sans Mono 9
-font xft:FontAwesome 8
+font xft:Dejavu Sans Mono 10, FontAwesome 9
+#font xft:FontAwesome 9
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -41,14 +40,12 @@ bindsym $mod+p exec dmenu_run
 # start rofi
 bindsym $mod+space exec rofi -show run
 
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 #bindsym $mod+semicolon focus right
-#eval `dircolors -b $HOME/.dir_colors`
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Alt_R focus left
 bindsym $mod+Super_R focus down
@@ -79,35 +76,33 @@ bindsym $mod+Ctrl+Shift+Up resize grow height 10 px or 10 ppt
 bindsym $mod+Ctrl+Shift+Down resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+Shift+Left resize grow width 10 px or 10 ppt
 
-### SPLITTING CLIENTS ###
-# split in horizontal orientation
+# Split client in horizontal orientation
 bindsym $mod+h split v
 
-# split in vertical orientation
+# Split client in vertical orientation
 bindsym $mod+v split h
 
-### FULL SCREEN ###
-# enter fullscreen mode for the focused container
+# Enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen
 
-# change container layout (stacked, tabbed, toggle split)
+# Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+w layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+# Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
+# Change focus between tiling / floating windows
 #bindsym $mod+space focus mode_toggle
 
-# focus the parent container
+# Focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
+# Focus the child container
 #bindsym $mod+d focus child
 
-# switch to workspace
+# Switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -119,7 +114,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-# move focused container to workspace
+# Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -131,14 +126,16 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# reload the configuration file
+# Reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
+
+# Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+# Resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -164,14 +161,18 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# autostart
+# Autostart
 exec --no-startup-id xfsettingsd
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id feh --bg-scale ~/Wallpapers/stars.jpg
 exec --no-startup-id compton
 
+# Float certain windows by default
+for_window [class="Telegram"] floating enable
+for_window [class="Transmission"] floating enable
+for_Window [class="Mousepad"] floating enable
+
 # Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
     status_command i3status
 	position	top
@@ -190,10 +191,6 @@ bar {
           urgent_workspace   #000000 #ff3030 #ffffff
         }
 }
-#bar {
-#        status_command i3status
-#}
-
 # // Scratchpad
 # Make the currently focused window a scratchpad
 #bindsym $mod+Shift+minus move scratchpad
