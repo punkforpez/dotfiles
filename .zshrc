@@ -1,10 +1,7 @@
 # .zshrc - github.com/punkforpez
 
-
 # Set the prompt to something more pleasing
-PS1='%F{green}%m %f%b%# '
-
-# A right-aligned prompt for showing current directory and shell execution numbers.
+PS1='%F{magenta}%m %f%b%# '
 #RPROMPT='%F{pink}%~%f (%!)'
 
 # Boring $PATH business:
@@ -13,23 +10,12 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/lo
 # Basic Navigation
 alias h="cd ~"
 alias up="cd .."
+alias ddl='cd ~/Downloads; clear; pwd; ls'
 
-# Void specific package management.
-# Using vpm wrapper
-alias vpm='sudo vpm'
-alias xbi='sudo xbps-install'
-alias xbrm='sudo xbps-remove -o'
-
-# Distro agnostic package systems.
-alias apt-get="sudo apt-get"
+# pacman related
 alias pacman='sudo pacman'
-alias apt='sudo apt'
-alias xbi='sudo xbps-install'
-alias dnf='sudo dnf'
-
-# Taskbook specific
-alias ctb='clear; tb'
-alias ctbi='clear; tb -i'
+alias pacrm='sudo pacman -Rs'
+alias pacq='sudo pacman -Q'
 
 # vim-style navigation
 bindkey -v
@@ -46,15 +32,15 @@ alias psa="ps aux"
 alias kk="uname -mrs"
 alias clp="clear;ls;pwd"
 alias p3="ping -c 3"
-alias treed="tree -Cd"
-alias tree="tree -C"
-alias tweet="rainbowstream"
 alias sf="clear; sysinfo"
 alias sfa='clear; echo; neofetch; echo;'
-alias fetch='clear; fetch;'
 alias mem='top -l1 | grep PhysMem'
 alias cat='bat'
-alias dfc='clear; echo; dfc -Ms; echo;'
+#alias dfc='clear; echo; dfc -Ms; echo;'
+# Use this one instead when fucking <insert dumbass disro here>
+# decides to not properly process the -M variable. Because
+# keeping dfc up to date is hur-dur-hard.
+alias dfc='clear; echo; dfc -f;echo;'
 
 # Editing and sourcing .zshrc
 alias zedit="vim ~/.zshrc"

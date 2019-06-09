@@ -9,9 +9,9 @@ focus_follows_mouse no
 
 # color borders
 # class                         border  backgr.    text
-client.focused                  #ffffff #2d2d2d #d17b49
-client.unfocused                #222222 #222222 #315858
-client.focused_inactive         #222222 #222222 #666666
+client.focused                  #ffffff #2e3440 #2e3440
+client.unfocused                #222222 #222222 #2e3440
+client.focused_inactive         #222222 #222222 #2e3440
 
 # Fix ugly titlebars
 new_window 1pixel
@@ -21,21 +21,31 @@ new_float 1pixel
 hide_edge_borders both
 
 # Window title font
-font xft:Dejavu Sans Mono 10, FontAwesome 9
+font xft:Hack 11
+#font xft:Dejavu Sans Mono 10, FontAwesome 9
 #font xft:FontAwesome 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec kitty
 #bindsym $mod+Return exec urxvt +sb
 
+# Start nautilus (or alternative file browser)
+bindsym $mod+f exec nautilus
 # kill focused window
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+p exec dmenu_run
+
+# lock screen with i3lock-fancy
+# depends on i3lock-fancy-git from AUR
+bindsym $mod+o exec i3lock-fancy -gp
+
+# Suspend and lock
+bindsym $mod+Pause exec i3lock-fancy && systemctl suspend
 
 # start rofi
 bindsym $mod+space exec rofi -show run
@@ -162,32 +172,42 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Autostart
-exec --no-startup-id xfsettingsd
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id feh --bg-scale ~/Wallpapers/stars.jpg
-exec --no-startup-id compton
+#exec --no-startup-id xfsettingsd
+#exec --no-startup-id xfce4-power-manager
+exec --no-startup-id feh --bg-scale ~/Pictures/blob.jpg
+exec --no-startup-id compton --config ~/.config/compton.conf
+exec --no-startup-id redshift-gtk
+# Gaps
+for_window [class="^.*"] border pixel 2
+gaps inner 8
+gaps outer 3
+#smart_borders on
+#new_window none
 
 # Float certain windows by default
 for_window [class="Telegram"] floating enable
 for_window [class="Transmission"] floating enable
 for_Window [class="Mousepad"] floating enable
+for_window [class="Nautilus"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 bar {
     status_command i3status
 	position	top
-	tray_output	none
+	#tray_output	primary
+	tray_padding	3
     separator_symbol " "	
 	#mode 		hide
    	hidden_state 	hide
 	modifier 	$mod
         colors {
-          background #181818
-          statusline #999999
+          background #d8dee9
+          statusline #6f7787
+	  #statusline #2e3440
           # color_class      border  backg.  text
-          focused_workspace  #181818 #181818 #a3a3ff
-          active_workspace   #181818 #ffffff #000000
-          inactive_workspace #181818 #181818 #4f5b66
+          focused_workspace  #d8dee9 #d8dee9 #2e3440
+          active_workspace   #d8dee9 #d8dee9 #2e3440
+          inactive_workspace #d8dee9 #d8dee9 #81a1c1
           urgent_workspace   #000000 #ff3030 #ffffff
         }
 }
