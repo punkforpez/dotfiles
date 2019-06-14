@@ -1,4 +1,4 @@
-# Dotfiles for Void and Manjaro
+# Dotfiles for Manjaro
 ![Manjaro Linux](i3.png)
 
 ## Included in this repo:
@@ -9,6 +9,7 @@ Especially when switching out of major distro types (rpm, apt, etc).
 * zsh
 * irssi
 * tmux
+* kitty (with nord colorscheme)
 * i3 / i3status
 * vim
 
@@ -17,3 +18,5 @@ Especially when switching out of major distro types (rpm, apt, etc).
 - [ ] Dmenu and rofi theming
 - [ ] Cleanup of ~/bin scripts
 - [x] i3 revamp
+- [x] kitty.conf
+- [x] kitty color scheme (nord)
