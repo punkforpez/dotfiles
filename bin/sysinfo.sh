@@ -18,13 +18,16 @@ rst="\e[0m"
  
 color-echo()
 {  # print with colors
-  echo -e " $grn$1\t: $rst$2"
+  echo -e " $prp$1\t: $rst$2"
 }
 green-echo()
 { # for the main logo
   echo -en " $grn$1"
 }
- 
+blue-echo()
+{ # for the main logo (blue variant)
+  echo -en " $red$1"
+} 
 print-kernel()
 {
   #color-echo 'KERN\t' "$(cat /sys/devices/virtual/dmi/id/product_name)"
@@ -102,12 +105,12 @@ print-distro()
 #echo
 
 echo
-green-echo " ███████ ███   " && print-user
-green-echo " ███████ ███   " && print-distro
-green-echo " ███     ███   " && print-kernel
-green-echo " ███ ███ ███   " && print-packages
-green-echo " ███ ███ ███   " && print-shell
-green-echo " ███ ███ ███   " && print-uptime
+blue-echo " ███████ ███   " && print-user
+blue-echo " ███████ ███   " && print-distro
+blue-echo " ███     ███   " && print-kernel
+blue-echo " ███ ███ ███   " && print-packages
+blue-echo " ███ ███ ███   " && print-shell
+blue-echo " ███ ███ ███   " && print-uptime
 echo
  
 #print-colors

@@ -7,6 +7,7 @@ set wildmenu		" Show autocomplete
 set number
 
 " | set number relativenumber
+" set cursorline
 set ruler
 set tabstop=4
 set nobackup
