@@ -21,7 +21,7 @@ new_float 1pixel
 hide_edge_borders both
 
 # Window title font
-font xft:Hack 11
+font xft:Hack 9
 #font xft:Dejavu Sans Mono 10, FontAwesome 9
 #font xft:FontAwesome 9
 
@@ -29,7 +29,7 @@ font xft:Hack 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec urxvt
 #bindsym $mod+Return exec urxvt +sb
 
 # Start nautilus (or alternative file browser)
@@ -181,13 +181,18 @@ bindsym $mod+r mode "resize"
 # Autostart
 #exec --no-startup-id xfsettingsd
 #exec --no-startup-id xfce4-power-manager
-exec --no-startup-id feh --bg-scale ~/Pictures/water4.jpg
-exec --no-startup-id compton --config ~/.config/compton.conf
-exec --no-startup-id redshift-gtk
+exec --no-startup-id feh --bg-scale ~/Wallpapers/tokyo.jpg
+#exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111	
+exec --no-startup-id xrdb ~/.Xresources
+exec --no-startup-id compton
+exec --no-startup-id xcalib ~/colorprofiles/colorprofile.icc
+exec --no-startup-id nm-applet
+#exec --no-startup-id compton --config ~/.config/compton.conf
+#exec --no-startup-id redshift-gtk
 # Gaps
 for_window [class="^.*"] border pixel 2
-gaps inner 8
-gaps outer 3
+gaps inner 6
+gaps outer 2
 #smart_borders on
 #new_window none
 
