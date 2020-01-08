@@ -16,6 +16,7 @@ alias ddl='cd ~/Downloads; clear; pwd; ls'
 alias pacman='sudo pacman'
 alias pacrm='sudo pacman -Rs'
 alias pacq='sudo pacman -Q'
+alias pacorph='sudo pacman -Rns $(pacman -Qtdq)'
 
 # vim-style navigation
 bindkey -v
@@ -36,10 +37,6 @@ alias sf="clear; sysinfo"
 alias sfa='clear; echo; neofetch; echo;'
 alias mem='top -l1 | grep PhysMem'
 alias cat='bat'
-#alias dfc='clear; echo; dfc -Ms; echo;'
-# Use this one instead when fucking <insert dumbass disro here>
-# decides to not properly process the -M variable. Because
-# keeping dfc up to date is hur-dur-hard.
 alias dfc='clear; echo; dfc -f;echo;'
 
 # Editing and sourcing .zshrc
