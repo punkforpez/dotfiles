@@ -1,6 +1,6 @@
 # Arch Linux Dotfiles
 ![Arch Linux](i3.png)
-
+![Whale Fetch](arch.png)
 ## Included in this repo:
 Mainly my entire configuration for Arch Linux.
 
