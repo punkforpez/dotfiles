@@ -1,16 +1,21 @@
-# Dotfiles for Arch
+# Arch Linux Dotfiles
 ![Arch Linux](i3.png)
 
 ## Included in this repo:
-I try to keep this as distro-agnostic as possible but there will be some changes needed.
-Especially when switching out of major distro types (rpm, apt, etc).
+Mainly my entire configuration for Arch Linux.
 
-* ~/bin and ~/scripts
-* zsh
-* irssi
-* tmux
+In the past this has been a dedicated Manjaro repo but I decided to switch everything back to Arch Linux. Although this will mean that the files here will still be as distro-agnostic as possible, just leaning more heavily towards Arch and it's derivatives. An example would be found in the Arch heavy aliases used in .zshrc.
+
+## A Note on Gruvbox
+I recently made the switch to a bastardized version of the Gruvbox theme. A few things have been added out of context into my overall desktop, including the differing colors in i3status. These are true to the Gruvbox palette, just not in the fashion they were intended.
+
+## Summary of Files
+* ~/bin
+* zshrc
+* irssi configuration
+* tmux config
 * Termite terminal (w/ gruvbox theme)
-* i3 / i3status
+* i3 / i3status (gruvbox)
 * vim (gruvbox)
 * Xresources (gruvbox)
 

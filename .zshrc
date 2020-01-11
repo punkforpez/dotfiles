@@ -1,7 +1,7 @@
 # .zshrc - github.com/punkforpez
 
 # Set the prompt to something more pleasing
-PS1='%F{magenta}%m %f%b%# '
+PS1='%F{yellow}%m %f%b%# '
 #RPROMPT='%F{pink}%~%f (%!)'
 
 # Boring $PATH business:
@@ -34,6 +34,7 @@ alias kk="uname -mrs"
 alias clp="clear;ls;pwd"
 alias p3="ping -c 3"
 alias sf="clear; sysinfo"
+alias whale="clear; whale; echo;"
 alias sfa='clear; echo; neofetch; echo;'
 alias mem='top -l1 | grep PhysMem'
 alias cat='bat'
