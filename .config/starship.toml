@@ -1,0 +1,30 @@
+# github.com/punkforpez/dotfiles
+# Starship Prompt (starship.rs) config
+
+# Don't print a new line
+#add_newline = false
+
+# Battery
+[[battery.display]]
+threshold = 50
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 30
+style = "bold red"
+
+# Directory
+[directory]
+style = "bold blue"
+
+# Hostnae
+[hostname]
+disabled = false
+
+# Character config (prompt symbol, etc)
+[character]
+#symbol = "➜"
+
+# Time Module
+#[time]
+#disabled = false

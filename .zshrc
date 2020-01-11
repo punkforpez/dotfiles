@@ -1,7 +1,7 @@
 # .zshrc - github.com/punkforpez
 
 # Set the prompt to something more pleasing
-PS1='%F{yellow}%m %f%b%# '
+PS1='%F{cyan}%m %f%b%# '
 #RPROMPT='%F{pink}%~%f (%!)'
 
 # Boring $PATH business:
@@ -67,4 +67,5 @@ function cpf {
 }
 
 # Syntax Highlighting - must be last in .zshrc
+eval "$(starship init zsh)"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
