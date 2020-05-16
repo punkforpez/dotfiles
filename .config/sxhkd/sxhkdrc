@@ -1,0 +1,74 @@
+#!/usr/bin/bash
+# SCREENSHOTS
+Print
+    maim -u -m 10 | tee ~/Pictures/Screenshots/$(date +%d%m_%H%M%S).png | xclip -selection clipboard -t image/png
+shift + Print
+    maim -s -u -m 10 | tee ~/Pictures/Screenshots/$(date +%d%m_%H%M%S).png | xclip -selection clipboard -t image/png
+
+# APP RUN
+super + Return
+    termite
+super + space
+    rofi -show run
+
+# BSPWM
+# control bspwm
+super + shift + r
+    bspc wm -r
+super + shift + e
+    bspc quit
+
+# close/kill window
+super + {_,shift + }q
+    bspc node -{c,k}
+
+# alt tab
+super + Tab
+	bspc node -f last
+
+# switch modes
+super + m
+    bspc desktop -l next
+super + f
+    bspc node -t {floating,tiled}
+super + t
+    bspc node -t {pseudo_tiled,tiled}
+
+# locked - ignore close
+# sticky - stay focused, follow
+super + {x,y}
+    bspc node -g {locked,sticky}
+# send/focus window
+super + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
+# go/send to ws
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,node -d} '^{1-9,10}'
+# preselect
+super + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
+# clear preselect
+super + space
+    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+# FN
+super + F1
+    bash ~/.scripts/volume.sh --mute
+super + F2
+    bash ~/.scripts/volume.sh --down
+super + F3
+    bash ~/.scripts/volume.sh --up
+super + F4
+    bash ~/.scripts/volume.sh --mic-mute
+super + F5
+    bspc wm -r
+super + F6
+    bash ~/.scripts/touchpad.sh
+super + F7
+    bash ~/.scripts/airplane.sh
+super + F9
+    gllock
+super + F11
+    light -U 10
+super + F12
+    light -A 10

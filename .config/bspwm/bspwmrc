@@ -1,0 +1,15 @@
+#! /usr/bin/bash
+killall -q sxhkd
+sxhkd &
+killall -q polybar
+polybar main &
+
+feh --bg-scale ~/Wallpapers/2.jpg
+
+bspc monitor -d 1 2 3 4
+bspc config border_width 0
+bspc config window_gap 8
+bspc config border_radius 2
+bspc config top_padding 24
+setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:caps,shift:both_capslock
+numlockx on

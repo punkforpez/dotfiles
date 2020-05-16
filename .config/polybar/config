@@ -1,0 +1,127 @@
+[colors]
+background = #f3f3f3
+background-alt = #444
+foreground = #2c2c2c
+foreground-alt = #9d9d9d
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/main]
+height = 25
+fixed-center = false
+override-redirect = true
+top-margin = 0
+bottom-margin = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0 = "Lato:style=Regular:size=11"
+font-1 = "Font Awesome 5 free:style=Regular:size=11"
+font-2 = "Font Awesome 5 free:style=Solid:size=11"
+font-3 = "Font Awesome 5 brands:style=Regular:size=11"
+
+modules-left = bspwm
+modules-center = 
+modules-right = pulseaudio bluetooth eth battery date
+
+module-margin = 4
+padding-right = 4
+padding-left = 2
+
+tray-position = right
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-foreground = ${colors.foreground-alt}
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = 
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+label =  %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+label =  %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interval = 2
+interface = enp4s0
+
+label-connected = %essid%
+format-connected = <ramp-signal> <label-connected>
+format-disconnected =
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
+
+[module/eth]
+type = internal/network
+interval = 3.0
+interface = enp4s0
+
+label-connected = UP
+format-disconnected = DOWN
+
+[module/date]
+type = internal/date
+interval = 2
+
+date = "%a, %b %d %H:%M"
+date-alt = "%H:%M"
+
+label =  %date%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume>
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+label-muted = 
+
+#[module/battery]
+#type = internal/battery
+#battery = BAT0
+#adapter = ADP0
+#full-at = 95
+
+format-discharging = <ramp-capacity>
+label-charging = 
+label-full = 
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+[module/bluetooth]
+type = custom/script
+interval = 2
+
