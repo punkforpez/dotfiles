@@ -8,9 +8,10 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/main]
-height = 25
-fixed-center = false
+height = 26
+fixed-center = true
 override-redirect = true
+wm-restack = bspwm
 top-margin = 0
 bottom-margin = 0
 
@@ -24,7 +25,7 @@ font-3 = "Font Awesome 5 brands:style=Regular:size=11"
 
 modules-left = bspwm
 modules-center = 
-modules-right = pulseaudio bluetooth eth battery date
+modules-right = pulseaudio bluetooth eth battery date powermenu
 
 module-margin = 4
 padding-right = 4
@@ -51,6 +52,40 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 label-empty = 
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+format-margin = 0
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-padding = 2
+
+label-open = 
+label-close = 
+label-separator = "   "  
+
+; reboot
+menu-0-1 = 
+menu-0-1-exec = menu-open-2
+; poweroff
+menu-0-2 = 
+menu-0-2-exec = menu-open-3
+; logout
+menu-0-0 = 
+menu-0-0-exec = menu-open-1
+
+menu-2-0 = 
+menu-2-0-exec = reboot
+
+menu-3-0 = 
+menu-3-0-exec = poweroff
+
+menu-1-0 = 
+menu-1-0-exec = bspc quit
 
 [module/cpu]
 type = internal/cpu
@@ -98,7 +133,7 @@ label =  %date%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <ramp-volume>
+format-volume = <ramp-volume>  <label-volume>
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 

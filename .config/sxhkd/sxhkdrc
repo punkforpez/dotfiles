@@ -1,17 +1,11 @@
 #!/usr/bin/bash
-# SCREENSHOTS
-Print
-    maim -u -m 10 | tee ~/Pictures/Screenshots/$(date +%d%m_%H%M%S).png | xclip -selection clipboard -t image/png
-shift + Print
-    maim -s -u -m 10 | tee ~/Pictures/Screenshots/$(date +%d%m_%H%M%S).png | xclip -selection clipboard -t image/png
-
-# APP RUN
+# App Launching
 super + Return
     termite
+
 super + space
     rofi -show run
 
-# BSPWM
 # control bspwm
 super + shift + r
     bspc wm -r
@@ -26,13 +20,25 @@ super + {_,shift + }q
 super + Tab
 	bspc node -f last
 
-# switch modes
+# Toggle monocole
 super + m
     bspc desktop -l next
-super + f
+
+# Toggle Floating / Tiled
+super + shift + space
     bspc node -t {floating,tiled}
-super + t
+
+# Toggle psudeo-tiled
+super + shift + t
     bspc node -t {pseudo_tiled,tiled}
+
+# Toggle horizontal / vertical
+super + e
+	bspc node @parent -R 90
+
+# Toggle fullscreen
+super + f
+	bspc node -t \~fullscreen
 
 # locked - ignore close
 # sticky - stay focused, follow
