@@ -8,12 +8,13 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/main]
-height = 26
+height = 28
 fixed-center = true
 override-redirect = true
 wm-restack = bspwm
 top-margin = 0
 bottom-margin = 0
+bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}

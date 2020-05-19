@@ -6,6 +6,10 @@ super + Return
 super + space
     rofi -show run
 
+# dmenu on upper bar, using gruvbox colors.
+super + p
+	dmenu_run -fn hack -nb "#282828" -nf "#ebdbb2" -sb "#d3869b" -sf "#fbf1c7"
+
 # control bspwm
 super + shift + r
     bspc wm -r
