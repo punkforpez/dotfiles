@@ -1,6 +1,5 @@
 # Arch Linux Dotfiles
-![Arch Linux](i3.png)
-![Whale Fetch](arch.png)
+![Arch Linux](bspwm.png)
 ## Included in this repo:
 Mainly my entire configuration for Arch Linux.
 
@@ -8,6 +7,9 @@ In the past this has been a dedicated Manjaro repo but I decided to switch every
 
 ## A Note on Gruvbox
 I recently made the switch to a bastardized version of the Gruvbox theme. A few things have been added out of context into my overall desktop, including the differing colors in i3status. These are true to the Gruvbox palette, just not in the fashion they were intended.
+
+## Switching to BSPWM
+I receently made the switch to the excellent bspwm across all of my computers. I will update this repo as I progress through my setup and changes.
 
 ## Summary of Files
 * ~/bin
@@ -20,7 +22,7 @@ I recently made the switch to a bastardized version of the Gruvbox theme. A few 
 * Xresources (gruvbox)
 
 ## To-Do
-- [ ] Fully switch to gruvbox
+- [x] Fully switch to gruvbox
 - [x] Cleanup of .zshrc
 - [x] Dmenu and rofi theming
 - [x] Cleanup of ~/bin scripts
