@@ -8,7 +8,7 @@ super + space
 
 # dmenu on upper bar, using gruvbox colors.
 super + p
-	dmenu_run -fn hack -nb "#282828" -nf "#ebdbb2" -sb "#d3869b" -sf "#fbf1c7"
+	dmenu_run -b -fn hack -nb "#282828" -nf "#ebdbb2" -sb "#d3869b" -sf "#fbf1c7"
 
 # control bspwm
 super + shift + r
