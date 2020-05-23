@@ -24,10 +24,10 @@ bottom = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-font-0 = "Lato:style=Regular:size=11"
-font-1 = "Font Awesome 5 free:style=Regular:size=11"
-font-2 = "Font Awesome 5 free:style=Solid:size=11"
-font-3 = "Font Awesome 5 brands:style=Regular:size=11"
+font-0 = "Lato:style=Regular:size=12;2"
+font-1 = "Font Awesome 5 free:style=Regular:size=12;2"
+font-2 = "Font Awesome 5 free:style=Solid:size=12;2"
+font-3 = "Font Awesome 5 brands:style=Regular:size=12;2"
 
 modules-left = bspwm
 modules-center = 
