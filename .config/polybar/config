@@ -26,10 +26,10 @@ font-3 = "Font Awesome 5 brands:style=Regular:size=11"
 
 modules-left = bspwm
 modules-center = 
-modules-right = pulseaudio bluetooth eth battery date powermenu
+modules-right = pulseaudio bluetooth wlan eth battery date powermenu
 
-module-margin = 4
-padding-right = 4
+module-margin = 2
+padding-right = 0
 padding-left = 2
 
 tray-position = right
@@ -101,7 +101,7 @@ label =  %percentage_used%%
 [module/wlan]
 type = internal/network
 interval = 2
-interface = enp4s0
+interface = wlp2s0
 
 label-connected = %essid%
 format-connected = <ramp-signal> <label-connected>
@@ -141,21 +141,22 @@ ramp-volume-2 = 
 
 label-muted = 
 
-#[module/battery]
-#type = internal/battery
-#battery = BAT0
-#adapter = ADP0
-#full-at = 95
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 99
 
-format-discharging = <ramp-capacity>
+#format-discharging = <ramp-capacity>
+format_discharging = %percentage%%
 label-charging = 
 label-full = 
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 =  %percentage%%
+ramp-capacity-1 =  %percentage%%
+ramp-capacity-2 =  %percentage%%
+ramp-capacity-3 =  %percentage%%
+ramp-capacity-4 =  %percentage%%
 
 [module/bluetooth]
 type = custom/script
