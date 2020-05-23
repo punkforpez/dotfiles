@@ -8,7 +8,12 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/main]
-height = 28
+height = 30
+width = 96%
+radius = 5
+#line-size = 33
+offset-x = 2%
+offset-y = 4
 fixed-center = true
 override-redirect = true
 wm-restack = bspwm
