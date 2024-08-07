@@ -1,12 +1,15 @@
 # Arch Linux Dotfiles
 ![Arch Linux](bspwm.png)
 ## Included in this repo:
-Mainly my entire configuration for Arch Linux.
 
-In the past this has been a dedicated Manjaro repo but I decided to switch everything back to Arch Linux. Although this will mean that the files here will still be as distro-agnostic as possible, just leaning more heavily towards Arch and it's derivatives. An example would be found in the Arch heavy aliases used in .zshrc.
+## 2024 Update:
+This is being altered once again to include dotfiles for my main distro, Debian 12, Arch Linux and MacOS. Placeholder for now while I update the remainder of the repo before altering my README.
 
-## A Note on Gruvbox
-I recently made the switch to a bastardized version of the Gruvbox theme. A few things have been added out of context into my overall desktop, including the differing colors in i3status. These are true to the Gruvbox palette, just not in the fashion they were intended.
+
+---
+## Much of the below is being altered
+---
+
 
 ## Switching to BSPWM
 I receently made the switch to the excellent bspwm across all of my computers. I will update this repo as I progress through my setup and changes.
