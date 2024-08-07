@@ -1,18 +1,23 @@
-# Arch Linux Dotfiles
-![Arch Linux](bspwm.png)
-## Included in this repo:
+# Dotfiles
+> These dotfiles are used primarily across my Linux distro of choice Debian 12 and on my personal M1 MacBook Air running macOS Sequoia. They can also be used with other Linux distros, obviously, but are tailored to these two. There is a subset of aliases included for Arch Linux, which I also use from time to time as a secondary Linux distro.
 
-## 2024 Update:
-This is being altered once again to include dotfiles for my main distro, Debian 12, Arch Linux and MacOS. Placeholder for now while I update the remainder of the repo before altering my README.
+My distro-hopping days have ended long ago as I've gotten older but I do want to maintain as much fluidity as possible for migrating across distros if the need ever arises.
+
+## A note on Gruvbox
+Though I prefer other color themes for non-terminal work, including Rosé Pine for Bear and Obsidian, I like to use Gruvbox-dark as my color theme for all terminal work. I just find the warmer palette easier on the eyes for long sessions of staring at terminal output, code, etc. 
+
+I use the Gruvbox theme for iTerm2 on macOS, Tilix on Debian and Arch and within vim, my console editor of the past 25 odd years.
 
 
 ---
-## Much of the below is being altered
----
+## Alterations to this repo:
 
+- [ ] Updated .vimrc
+- [ ] Updated .zshrc
+- [ ] Configurations for Tilix, Kitty, iterm2 including links to themes, etc.
+- [ ] Updated gtk.css for Gnome (current one does not seem to work with newer Gnome updates: it's been years!
+- [ ] Configuration for Hyprland on Debian (once working) 
 
-## Switching to BSPWM
-I receently made the switch to the excellent bspwm across all of my computers. I will update this repo as I progress through my setup and changes.
 
 ## Summary of Files
 * ~/bin
@@ -23,12 +28,6 @@ I receently made the switch to the excellent bspwm across all of my computers. I
 * i3 / i3status (gruvbox)
 * vim (gruvbox)
 * Xresources (gruvbox)
-
-## To-Do
-- [x] Fully switch to gruvbox
-- [x] Cleanup of .zshrc
-- [x] Dmenu and rofi theming
-- [x] Cleanup of ~/bin scripts
-- [x] i3 revamp
-- [x] kitty.conf
-- [x] kitty color scheme (nord)
+* bspwm config (most likely to be removed as I move to hyprland)
+* kitty config
+* tilix config
