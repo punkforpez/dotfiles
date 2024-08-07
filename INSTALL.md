@@ -10,7 +10,7 @@
 - vim: Because vim.
 - htop
 - gtop/gotop: Always one of these variants, usually gtop
-- ranger
+- ranger: The perfect terminal file explorer. 
 - mc
 - bat: The 'cat' command with syntax-highlighting and pagination. Yes!
 - The Fuck: Essential for command work.
