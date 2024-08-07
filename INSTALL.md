@@ -1,6 +1,6 @@
-# Applications 
+# Applications
 
-> These are the applications to install for Debian, Arch Linux and MacOS
+> These are the applications to install for Debian, Arch Linux and MacOS. I primarily do my coding within Zed and vim as I am looking to replace VS Code (slow)
 
 ## Terminal (across all three)
 
@@ -10,12 +10,12 @@
 - vim: Because vim.
 - htop
 - gtop/gotop: Always one of these variants, usually gtop
-- ranger: The perfect terminal file explorer. 
+- ranger: The perfect terminal file explorer.
 - mc
 - bat: The 'cat' command with syntax-highlighting and pagination. Yes!
-- The Fuck: Essential for command work.
+- thefuck: Essential for command work.
 - git
-- Nala: a wrapper for Debian's apt; so much nicer.
+- nala: a wrapper for Debian's apt; so much nicer.
 
 ## Writing Apps (Linux and Mac)
 
