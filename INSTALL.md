@@ -1,21 +1,25 @@
 # Applications
 
-> These are the applications to install for Debian, Arch Linux and MacOS. I primarily do my coding within Zed and vim as I am looking to replace VS Code (slow)
+> These are the applications I use on every install of Debian, Arch Linux and MacOS.
+
+I have a love-hate relationship with applications and I am constantly looking for new ones along the way, though these are the default that go onto every installation I use. I consider many of these *essential* to my productivity across platforms, particularly the common applications I use across operating systems.
+
+Distro and environment agnostic applications are a must. There are, of course, several instances where a Linux version may not exist for an application (Arc for example) where I use the closest *comfortable* replacement; in the case of web-browsing on Linux: Microsoft Edge and Firefox take the place of Arc and Safari.
 
 ## Terminal (across all three)
 
-- zsh: The only shell I likei
-- zsh-syntax-highlighting: Why this isn't standard I don't know.
-- tmux: For splitting panes and ssh sessions (not used much anymore)
-- vim: Because vim.
-- htop
+- [zsh](http://zsh.org): The only shell I need.
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting): Why this isn't standard I don't know.
+- [tmux](https://github.com/tmux/tmux/wiki): For splitting panes and ssh sessions (not used much anymore)
+- [vim](https://vim.org): Because vim.
+- [htop](https://htop.dev)
 - gtop/gotop: Always one of these variants, usually gtop
-- ranger: The perfect terminal file explorer.
-- mc
-- bat: The 'cat' command with syntax-highlighting and pagination. Yes!
-- thefuck: Essential for command work.
-- git
-- nala: a wrapper for Debian's apt; so much nicer.
+- [ranger](https://github.com/ranger/ranger): The perfect terminal file explorer.
+- [mc](https://midnight-commander.org): Fantastic terminal file explorer.
+- [bat](https://github.com/sharkdp/bat): The 'cat' command with syntax-highlighting and pagination. Yes!
+- [thefuck](https://github.com/nvbn/thefuck): Essential for command work.
+- [git](https://github.com): No introduction needed.
+- [nala](https://github.com/volitank/nala): a wrapper for Debian's apt; so much nicer.
 
 ## Writing Apps (Linux and Mac)
 
