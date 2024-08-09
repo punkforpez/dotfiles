@@ -3,7 +3,7 @@
 
 ## MacOS Sequoia
 
-![MacOS](mac.jpeeg)
+![MacOS](~/images/mac.jpeg)
 
 My distro-hopping days have ended long ago as I've gotten older but I do want to maintain as much fluidity as possible for migrating across distros if the need ever arises.
 
