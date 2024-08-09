@@ -1,12 +1,15 @@
 # Dotfiles
 > These dotfiles are used primarily across my Linux distro of choice Debian 12 and on my personal M1 MacBook Air running macOS Sequoia. They can also be used with other Linux distros, obviously, but are tailored to these two. There is a subset of aliases included for Arch Linux, which I also use from time to time as a secondary Linux distro.
 
+## MacOS Sequoia
+
+![MacOS](mac.jpeeg)
+
 My distro-hopping days have ended long ago as I've gotten older but I do want to maintain as much fluidity as possible for migrating across distros if the need ever arises.
 
-## A note on Gruvbox
-Though I prefer other color themes for non-terminal work, including Rosé Pine for Bear and Obsidian, I like to use Gruvbox-dark as my color theme for all terminal work. I just find the warmer palette easier on the eyes for long sessions of staring at terminal output, code, etc. 
+## Switching to Everforest
 
-I use the Gruvbox theme for iTerm2 on macOS, Tilix on Debian and Arch and within vim, my console editor of the past 25 odd years.
+I have been a longtime Gruvbox user, and I will always be a fan, but lately I find myself more attracted to the color palette that Everforest offers and have been slowly switching all of my themeable apps and configurations to the Everforest theme.
 
 
 ---
@@ -16,7 +19,7 @@ I use the Gruvbox theme for iTerm2 on macOS, Tilix on Debian and Arch and within
 - [ ] Updated .zshrc
 - [ ] Configurations for Tilix, Kitty, iterm2 including links to themes, etc.
 - [ ] Updated gtk.css for Gnome (current one does not seem to work with newer Gnome updates: it's been years!
-- [ ] Configuration for Hyprland on Debian (once working) 
+- [ ] Configuration for Hyprland on Debian (once working)
 
 
 ## Summary of Files

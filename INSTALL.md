@@ -20,8 +20,6 @@ Distro and environment agnostic applications are a must. There are, of course, s
 - [thefuck](https://github.com/nvbn/thefuck): Essential for command work.
 - [git](https://github.com): No introduction needed.
 - [nala](https://github.com/volitank/nala): a wrapper for Debian's apt; so much nicer.
-- [alt-tab](https://alt-tab-macos.netlify.app): Like the Windows versiion, much better than default.
-- [loop](https://github.com/MrKai77/Loop?tab=readme-ov-file): Window management radial-style.
 
 
 ## Writing Apps (Linux and Mac)
@@ -34,5 +32,9 @@ Distro and environment agnostic applications are a must. There are, of course, s
 
 - Arc: My favorite Mac browser
 - iTerm2: Essential replacement for the default terminal
-- Alfred 4: I like raycast, but Alfred is my home
+- Alfred 4: Alfred is my home.
 - Bear: Sometimes I just like a nice, clean environment for longform writing.
+- [alt-tab](https://alt-tab-macos.netlify.app): Like the Windows versiion, much better than default.
+- [loop](https://github.com/MrKai77/Loop?tab=readme-ov-file): Window management radial-style.
+- [tiles](https://www.sempliva.com/tiles/): Another excellent window management app, like magnet.
+- [Raycast](https://www.raycast.com): From a longtimer Alfred user, this app is great.
