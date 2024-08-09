@@ -16,5 +16,5 @@ set hlsearch		" Highlight search results
 set mouse-=a
 
 " gruvbox colors
-source ~/.vim/gruvbox.vim
+" source ~/.vim/gruvbox.vim
 

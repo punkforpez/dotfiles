@@ -20,6 +20,9 @@ Distro and environment agnostic applications are a must. There are, of course, s
 - [thefuck](https://github.com/nvbn/thefuck): Essential for command work.
 - [git](https://github.com): No introduction needed.
 - [nala](https://github.com/volitank/nala): a wrapper for Debian's apt; so much nicer.
+- [alt-tab](https://alt-tab-macos.netlify.app): Like the Windows versiion, much better than default.
+- [loop](https://github.com/MrKai77/Loop?tab=readme-ov-file): Window management radial-style.
+
 
 ## Writing Apps (Linux and Mac)
 
