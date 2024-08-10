@@ -7,6 +7,8 @@
 
 My distro-hopping days have ended long ago as I've gotten older but I do want to maintain as much fluidity as possible for migrating across distros if the need ever arises.
 
+![Editing in Zed](/images/zed.png)
+
 ## Switching to Everforest
 
 I have been a longtime Gruvbox user, and I will always be a fan, but lately I find myself more attracted to the color palette that Everforest offers and have been slowly switching all of my themeable apps and configurations to the Everforest theme.

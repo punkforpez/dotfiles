@@ -27,7 +27,6 @@ alias nala='sudo nala' # better wrapper for Apt, in main Debian repo
 # Git-related
 alias gpull='git pull -v'
 alias gpush='git push origin master'
-alias gcm='git commit -m'
 alias gadd='git add .'
 
 # vim-style navigation
