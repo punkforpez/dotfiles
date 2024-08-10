@@ -24,6 +24,12 @@ alias pacorph='sudo pacman -Rns $(pacman -Qtdq)'
 alias apt='sudo apt'
 alias nala='sudo nala' # better wrapper for Apt, in main Debian repo
 
+# Git-related
+alias gpull='git pull -v'
+alias gpush='git push origin master'
+alias gcm='git commit -m'
+alias gadd='git add .'
+
 # vim-style navigation
 bindkey -v
 bindkey -M viins ‘jk’ vi-cmd-mode
@@ -76,4 +82,3 @@ function cpf {
 #eval "$(starship init zsh)"
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
