@@ -19,6 +19,12 @@ A lot of people like to toss around the concept of a "Second Brain", which is fi
 
 ![Obsidian as a Commonplace Book](/images/obsidian.png)
 
+***
+
+## Debian 12 Bookwork
+
+![Debian Gnome Desktop](images/debian.png)
+
 ## Switching to Everforest
 
 I have been a longtime Gruvbox user, and I will always be a fan, but lately I find myself more attracted to the color palette that Everforest offers and have been slowly switching all of my themeable apps and configurations to the Everforest theme.
