@@ -1,5 +1,5 @@
 # Dotfiles
-> These dotfiles are used primarily across my Linux distro of choice Debian 12 and on my personal M1 MacBook Air running macOS Sequoia. They can also be used with other Linux distros, obviously, but are tailored to these two. There is a subset of aliases included for Arch Linux, which I also use from time to time as a secondary Linux distro.
+> These dotfiles are used primarily across my Linux distro of choice (NixOS) and on my M1 MacBook Air running macOS Tahoe. They can also be used with other Linux distros, obviously, but are tailored to these two. There is a subset of aliases included for Arch Linux, which I also use from time to time as a secondary Linux distro.
 
 ## NixOS
 
@@ -30,26 +30,16 @@ A lot of people like to toss around the concept of a "Second Brain", which is fi
 
 ***
 
-## Debian 12 Bookwork
-
-![Debian Gnome Desktop](images/debian.png)
-
-## Switching to Everforest
-
-I have been a longtime Gruvbox user, and I will always be a fan, but lately I find myself more attracted to the color palette that Everforest offers and have been slowly switching all of my themeable apps and configurations to the Everforest theme.
-
-
----
 ## Alterations to this repo:
 
-- [ ] Updated .vimrc
-- [ ] Updated .zshrc
-- [ ] Configurations for Tilix, Kitty, iterm2 including links to themes, etc.
-- [ ] Updated gtk.css for Gnome (current one does not seem to work with newer Gnome updates: it's been years!
-- [ ] Configuration for Hyprland on Debian (once working)
+- [x] Updated .vimrc
+- [x] Updated .zshrc
+- [ ] Configuration for Hyprland on NixOS
+- [ ] Updated and cleaned-up NixOS configuration.nix
 
 
 ## Summary of Files
+> To be completed and fleshed out later
 * ~/bin
 * zshrc
 * irssi configuration
