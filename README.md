@@ -1,6 +1,15 @@
 # Dotfiles
 > These dotfiles are used primarily across my Linux distro of choice Debian 12 and on my personal M1 MacBook Air running macOS Sequoia. They can also be used with other Linux distros, obviously, but are tailored to these two. There is a subset of aliases included for Arch Linux, which I also use from time to time as a secondary Linux distro.
 
+## NixOS
+
+![NixOS](/images/nix.png)
+
+My new baby. I have recently fallen absolutely in love with NixOS since testing it out. I decided to replace one of my partitions to test it out and ended up liking it so much I made it my primary distro. I am not sure if it will ever replace MacOS as my main operating system, but if I ever escape the "Apple Ecosystem" this will absolutely slide into place.
+
+I am using KDE Plasma for this setup, and although I also have Hyprland installed I have gained so much respect for KDE that I don't plan on switching back any time soon. Plasma has come so far since I first tried it and I am astonished at how polished it is, now.
+
+
 ## MacOS Sequoia
 
 ![MacOS](/images/mac.jpeg)
