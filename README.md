@@ -10,7 +10,7 @@ My new baby. I have recently fallen absolutely in love with NixOS since testing 
 I am using KDE Plasma for this setup, and although I also have Hyprland installed I have gained so much respect for KDE that I don't plan on switching back any time soon. Plasma has come so far since I first tried it and I am astonished at how polished it is, now.
 
 
-## MacOS Sequoia
+## MacOS 26 Tahoe
 
 ![MacOS](/images/mac.jpeg)
 
