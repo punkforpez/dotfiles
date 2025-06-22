@@ -6,14 +6,17 @@ PS1='%F{cyan}%m %f%b%# '
 # RPROMPT='%F{pink}%~%f (%!)'
 
 # Boring $PATH business:
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/local/bin"a
-export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/run/wrappers/bin:/run/current-system/sw/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/local/bin"a
+#export PATH="/opt/homebrew/bin:$PATH"
 
 # Basic Navigation
 alias h="cd ~"
 alias up="cd .."
 alias ddl='cd ~/Downloads; clear; pwd; ls'
 
+# nixOS related
+alias nixedit='sudo vim /etc/nixos/configuration.nix'
+alias nixbuild='sudo nixos-rebuild switch'
 # pacman related
 alias pacman='sudo pacman'
 alias pacrm='sudo pacman -Rs'
@@ -44,9 +47,9 @@ alias psa="ps aux"
 alias kk="uname -mrs"
 alias clp="clear;ls;pwd"
 alias p3="ping -c 3"
-alias sf="clear; ~/bin/ufetch-macos"
+alias sf="clear; fastfetch;"
 alias whale="clear; whale; echo;"
-alias sfa='clear; echo; neofetch; echo;'
+alias sfa='clear; echo; fastfetch; echo;'
 alias mem='top -l1 | grep PhysMem'
 alias cat='bat'
 alias dfc='clear; echo; dfc -f;echo;'
@@ -80,4 +83,4 @@ function cpf {
 # Syntax Highlighting - must be last in .zshrc
 #eval "$(starship init zsh)"
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
