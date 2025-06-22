@@ -12,7 +12,7 @@ I am using KDE Plasma for this setup, and although I also have Hyprland installe
 
 ## MacOS 26 Tahoe
 
-![MacOS](/images/mac.jpeg)
+![MacOS](/images/mac.png)
 
 
 ## Editing and coding
