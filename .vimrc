@@ -18,3 +18,5 @@ set mouse-=a
 " gruvbox colors
 " source ~/.vim/gruvbox.vim
 
+" Everforest colors
+source ~/.vim/colors/everforest.vim
