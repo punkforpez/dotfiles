@@ -9,71 +9,69 @@ focus_follows_mouse no
 
 # color borders
 # class                         border  backgr.    text
-client.focused                  #ffffff #a89984 #2e3440
-client.unfocused                #222222 #504945 #2e3440
-client.focused_inactive         #222222 #1d2021 #2e3440
+client.focused                  #ffffff #2e3440 #2e3440
+client.unfocused                #222222 #222222 #2e3440
+client.focused_inactive         #222222 #222222 #2e3440
 
 # Fix ugly titlebars
-new_window 1pixel
-new_float 1pixel
+#new_window 1pixel
+#new_float 1pixel
 
 # Hide ugly window borders / horiz
 hide_edge_borders both
 
 # Window title font
-font xft:Source Code Pro 10.5
-#font xft:Dejavu Sans Mono 10, FontAwesome 9
-#font xft:FontAwesome 9
+font xft:Hack 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
-#bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec kitty
+#bindsym $mod+Return exec ghostty
 #bindsym $mod+Return exec urxvt +sb
 
-# Start nautilus (or alternative file browser)
-bindsym $mod+f exec nautilus
+# Start dolphin (or alternative file browser)
+bindsym $mod+f exec dolphin
 # kill focused window
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec dmenu_run
+bindsym $mod+p exec rofi -show window
 
 # lock screen with i3lock-fancy
 # depends on i3lock-fancy-git from AUR
-bindsym $mod+o exec i3lock-fancy -gp
+#bindsym $mod+o exec i3lock-fancy -gp
 
 # Suspend and lock
-bindsym $mod+Pause exec i3lock-fancy && systemctl suspend
+#bindsym $mod+Pause exec i3lock-fancy && systemctl suspend
 
 # start rofi
 bindsym $mod+space exec rofi -show run
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-#bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Alt_R focus left
 bindsym $mod+Super_R focus down
 bindsym $mod+Print focus up
-bindsym $mod+(null) focus right
+#bindsym $mod+(null) focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Alt_R move left
 bindsym $mod+Shift+Super_R move down
 bindsym $mod+Shift+Print move up
-bindsym $mod+Shift+(null) move right
+#bindsym $mod+Shift+(null) move right
 
 # Resizing by 1
 bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
@@ -88,7 +86,7 @@ bindsym $mod+Ctrl+Shift+Down resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+Shift+Left resize grow width 10 px or 10 ppt
 
 # Split client in horizontal orientation
-bindsym $mod+h split v
+bindsym $mod+Shift+v split v
 
 # Split client in vertical orientation
 bindsym $mod+v split h
@@ -151,7 +149,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exit
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Resize window (you can also use the mouse for that)
 mode "resize" {
@@ -170,7 +169,7 @@ mode "resize" {
         bindsym Alt_R resize shrink width 10 px or 10 ppt
         bindsym Super_R resize grow height 10 px or 10 ppt
         bindsym Print resize shrink height 10 px or 10 ppt
-        bindsym (null) resize grow width 10 px or 10 ppt
+        #bindsym (null) resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -180,17 +179,21 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Autostart
-exec --no-startup-id feh --bg-scale ~/Wallpapers/mountain.jpg
-exec --no-startup-id xrdb ~/.Xresources
-exec --no-startup-id compton
-exec --no-startup-id xcalib ~/colorprofiles/colorprofile.icc
-exec --no-startup-id nm-applet
+exec --no-startup-id hyprsunset
+#exec --no-startup-id xfsettingsd
+#exec --no-startup-id xfce4-power-manager
+#exec --no-startup-id feh --bg-scale ~/Wallpapers/tokyo.jpg
+#exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111	
+#exec --no-startup-id xrdb ~/.Xresources
+#exec --no-startup-id compton
+#exec --no-startup-id xcalib ~/colorprofiles/colorprofile.icc
+#exec --no-startup-id nm-applet
+#exec --no-startup-id compton --config ~/.config/compton.conf
 #exec --no-startup-id redshift-gtk
-
 # Gaps
 for_window [class="^.*"] border pixel 2
 gaps inner 6
-gaps outer 3
+gaps outer 2
 #smart_borders on
 #new_window none
 
@@ -202,26 +205,27 @@ for_window [class="Nautilus"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 bar {
+    swaybar_command waybar
     # hide workspace numbers
-    strip_workspace_numbers yes
-    status_command i3status
-	position	top
+    #strip_workspace_numbers yes
+    #status_command i3status
+	#position	top
 	#tray_output	primary
-	tray_padding	2
-    separator_symbol " "	
+	#tray_padding	3
+    #separator_symbol " "	
 	#mode 		hide
-   	hidden_state 	hide
-	modifier 	$mod
-        colors {
-          background #1d2021
-          statusline #928374
+   	#hidden_state 	hide
+	#modifier 	$mod
+    #    colors {
+    #      background #d8dee9
+    #      statusline #6f7787
 	  #statusline #2e3440
           # color_class      border  backg.  text
-          focused_workspace  #1d2021 #1d2021 #d65d0e
-          active_workspace   #1d2021 #1d2021 #d65d03
-          inactive_workspace #1d2021 #1d2021 #665c54
-          urgent_workspace   #000000 #ff3030 #ffffff
-        }
+    #      focused_workspace  #d8dee9 #d8dee9 #2e3440
+    #      active_workspace   #d8dee9 #d8dee9 #2e3440
+    #      inactive_workspace #d8dee9 #d8dee9 #81a1c1
+    #      urgent_workspace   #000000 #ff3030 #ffffff
+    #    }
 }
 # // Scratchpad
 # Make the currently focused window a scratchpad

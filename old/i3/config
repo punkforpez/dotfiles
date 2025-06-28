@@ -9,9 +9,9 @@ focus_follows_mouse no
 
 # color borders
 # class                         border  backgr.    text
-client.focused                  #ffffff #2e3440 #2e3440
-client.unfocused                #222222 #222222 #2e3440
-client.focused_inactive         #222222 #222222 #2e3440
+client.focused                  #ffffff #a89984 #2e3440
+client.unfocused                #222222 #504945 #2e3440
+client.focused_inactive         #222222 #1d2021 #2e3440
 
 # Fix ugly titlebars
 new_window 1pixel
@@ -21,7 +21,7 @@ new_float 1pixel
 hide_edge_borders both
 
 # Window title font
-font xft:Hack 9
+font xft:Source Code Pro 10.5
 #font xft:Dejavu Sans Mono 10, FontAwesome 9
 #font xft:FontAwesome 9
 
@@ -29,7 +29,8 @@ font xft:Hack 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec termite
+#bindsym $mod+Return exec urxvt
 #bindsym $mod+Return exec urxvt +sb
 
 # Start nautilus (or alternative file browser)
@@ -179,20 +180,17 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Autostart
-#exec --no-startup-id xfsettingsd
-#exec --no-startup-id xfce4-power-manager
-exec --no-startup-id feh --bg-scale ~/Wallpapers/tokyo.jpg
-#exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111	
+exec --no-startup-id feh --bg-scale ~/Wallpapers/mountain.jpg
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id compton
 exec --no-startup-id xcalib ~/colorprofiles/colorprofile.icc
 exec --no-startup-id nm-applet
-#exec --no-startup-id compton --config ~/.config/compton.conf
 #exec --no-startup-id redshift-gtk
+
 # Gaps
 for_window [class="^.*"] border pixel 2
 gaps inner 6
-gaps outer 2
+gaps outer 3
 #smart_borders on
 #new_window none
 
@@ -209,19 +207,19 @@ bar {
     status_command i3status
 	position	top
 	#tray_output	primary
-	tray_padding	3
+	tray_padding	2
     separator_symbol " "	
 	#mode 		hide
    	hidden_state 	hide
 	modifier 	$mod
         colors {
-          background #d8dee9
-          statusline #6f7787
+          background #1d2021
+          statusline #928374
 	  #statusline #2e3440
           # color_class      border  backg.  text
-          focused_workspace  #d8dee9 #d8dee9 #2e3440
-          active_workspace   #d8dee9 #d8dee9 #2e3440
-          inactive_workspace #d8dee9 #d8dee9 #81a1c1
+          focused_workspace  #1d2021 #1d2021 #d65d0e
+          active_workspace   #1d2021 #1d2021 #d65d03
+          inactive_workspace #1d2021 #1d2021 #665c54
           urgent_workspace   #000000 #ff3030 #ffffff
         }
 }

@@ -109,6 +109,12 @@
   # Hyprland Setup
   programs.hyprland.enable = true;
 
+  # Sway Setup
+  programs.sway = {
+	enable = true;
+	package = pkgs.swayfx;
+  };
+
   # Enable ZSH
   #programs.zsh.enable = true;
   #users.defaultUserShell = pkgs.zsh;
@@ -120,6 +126,20 @@
   	#ohMyZsh.theme = "frisk";
   	syntaxHighlighting.enable = true;
   };
+
+  # Fix GTK issues in Hyprland/Sway
+  programs.dconf.profiles.user.databases = [
+    {
+	settings."org/gnnome/desktop/interface" = {
+	  gtk-theme = "Breeze-Dark";
+	  icon-theme = "Kora";
+	  font-name ="Noto Sans 12";
+	  document-font-name = "Adwaita Sans 12";
+          monospace-font-name = "Hack 12";
+         };
+    }
+   ];
+
 
   # BOINC (Distributed computing)
   #services.boinc.enable = true;
@@ -145,6 +165,20 @@
 	pkgs.btop
 	killall
 	pkgs.bat
+	slurp # screenshots in Sway
+	grim # screenshots in Sway
+	wl-clipboard # clipboard manager in Sway
+	mako # Sway notifications
+	waybar
+	hyprpaper
+	nerd-fonts.hack
+	pamixer
+	brightnessctl
+	hyprsunset
+	nwg-look
+	dconf
+	dconf-editor
+	kdePackages.qt6ct
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
