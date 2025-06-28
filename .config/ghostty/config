@@ -45,9 +45,11 @@
 # Appearance
 #theme = rose-pine
 #theme = GruvboxDarkHard
+theme = GruvboxDark
 #theme = catppuccin-mocha
-theme = everforest-dark-hard
-background-opacity = 0.85
+#theme = catppuccin-macchiato
+#theme = everforest-dark-hard
+background-opacity = 0.95
 background-blur-radius = 40
 cursor-style = block
 cursor-style-blink = false
@@ -55,8 +57,8 @@ font-family = "Hack Regular"
 font-size = 12
 
 # Window
-window-padding-x = 10
-window-padding-y = 10
+window-padding-x = 6
+window-padding-y = 6
 window-padding-balance = true
 window-save-state = always
 window-inherit-font-size = true
