@@ -1,4 +1,5 @@
 # .zshrc - github.com/punkforpez
+# First created on Arch Linux in 2011
 
 # Set the prompt to something more pleasing
 PS1='%F{cyan}%m %f%b%# '
@@ -18,16 +19,17 @@ alias ddl='cd ~/Downloads; clear; pwd; ls'
 # nixOS related
 alias nixedit='sudo vim /etc/nixos/configuration.nix'
 alias nixbuild='sudo nixos-rebuild switch'
+alias nixupgrade='sudo nixos-rebuild switch --upgrade'
 
 # Arch Linux  related
 #alias pacman='sudo pacman'
 #alias pacrm='sudo pacman -Rs'
 #alias pacq='sudo pacman -Q'
-#alias pacorph='sudo pacman -Rns $(pacman -Qtdq)'
+#alias pacorph='sudo pacman -Rns $(pacman -Qtdq)' 
 
 # Debian related
-alias apt='sudo apt'
-alias nala='sudo nala' # better wrapper for Apt, in main Debian repo
+#alias apt='sudo apt'
+#alias nala='sudo nala' # better wrapper for Apt, in main Debian repo
 
 # Git-related
 alias gpull='git pull -v'
@@ -57,8 +59,8 @@ alias dfc='clear; echo; dfc -f;echo;'
 
 # Editing and sourcing .zshrc
 alias zedit="vim ~/.zshrc"
+# Uncomment and replace 'mousepad' with favorite GUI editor
 #alias zmouse="mousepad ~/.zshrc"
-#uncomment and replace with GUI editor of choice
 alias zsource="source ~/.zshrc"
 
 # Move and follow file to new dir:

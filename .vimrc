@@ -14,14 +14,19 @@ set nobackup
 set showmatch		" Show matching brackets
 set hlsearch		" Highlight search results
 set mouse-=a
-"set termguicolors
 
 " gruvbox colors
-source ~/.vim/colors/gruvbox.vim
+" source ~/.vim/gruvbox.vim
+"
+
+" Enable Lua Highlighting
+if has("autocmd")
+  augroup lua_ft
+    autocmd!
+    autocmd BufRead,BufNewFile *.lua set filetype=lua
+  augroup END
+endif
 
 " Everforest colors
-" source ~/.vim/colors/everforest.vim
-
-" Catppuccin
-"source ~/.vim/colors/catppuccin_mocha.vim
-"source ~/.vim/colors/catppuccin_macchiato.vim
+""source ~/.vim/colors/everforest.vim
+source ~/.vim/colors/gruvbox.vim
