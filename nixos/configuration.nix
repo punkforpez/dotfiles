@@ -103,6 +103,7 @@
     shell = pkgs.zsh;
   };
 
+
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -158,27 +159,38 @@
 	ghostty
 	featherpad
 	python3Full
-	pfetch
 	fzf
 	pkgs.kitty
 	rofi-wayland
 	pkgs.btop
 	killall
 	pkgs.bat
-	slurp # screenshots in Sway
-	grim # screenshots in Sway
 	wl-clipboard # clipboard manager in Sway
-	mako # Sway notifications
 	waybar
+	swayrbar
 	hyprpaper
 	nerd-fonts.hack
 	pamixer
 	brightnessctl
 	hyprsunset
+	hyprlock
+        hyprshot
 	nwg-look
 	dconf
 	dconf-editor
 	kdePackages.qt6ct
+	transmission_4-gtk
+	#winetricks
+	#wineWowPackages.waylandFull
+	swaybg
+	wlroots_0_19
+	gammastep
+	geoclue2
+	#neovim
+	wezterm
+	tmux
+	dfc
+	pavucontrol
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
