@@ -59,7 +59,7 @@ alias sf="clear; fastfetch;"
 alias sfa='clear; echo; fastfetch; echo;'
 alias mem='top -l1 | grep PhysMem'
 alias cat='bat'
-alias dfc='clear; echo; dfc -f;echo;'
+alias dfc='clear; echo; dysk;echo;'
 
 # Editing and sourcing .zshrc
 alias zedit="nvim ~/.zshrc"

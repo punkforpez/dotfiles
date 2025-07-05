@@ -1,5 +1,7 @@
 # .zshrc - github.com/punkforpez
 # First created on Arch Linux in 2011
+# This iteration contains modified sections for controlling Homebrew and other MacOS-related aliases.
+# Also of note is the section for enabling zsh-syntax-highlighting on MacOS and the Nix configuration will be separate here.
 
 # Set the prompt to something more pleasing
 PS1='%F{cyan}%m %f%b%# '
@@ -17,15 +19,15 @@ alias up="cd .."
 alias ddl='cd ~/Downloads; clear; pwd; ls'
 
 # nixOS related
-alias nixedit='sudo vim /etc/nixos/configuration.nix'
-alias nixbuild='sudo nixos-rebuild switch'
-alias nixupgrade='sudo nixos-rebuild switch --upgrade'
+#alias nixedit='sudo vim /etc/nixos/configuration.nix'
+#alias nixbuild='sudo nixos-rebuild switch'
+#alias nixupgrade='sudo nixos-rebuild switch --upgrade'
 
 # Arch Linux  related
 #alias pacman='sudo pacman'
 #alias pacrm='sudo pacman -Rs'
 #alias pacq='sudo pacman -Q'
-#alias pacorph='sudo pacman -Rns $(pacman -Qtdq)' 
+#alias pacorph='sudo pacman -Rns $(pacman -Qtdq)'
 
 # Debian related
 #alias apt='sudo apt'
@@ -87,5 +89,5 @@ function cpf {
 # Syntax Highlighting - must be last in .zshrc
 #eval "$(starship init zsh)"
 # Uncomment below if not on NixOS
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
