@@ -2,8 +2,8 @@
     "layer": "top",
     "height": 25,
     "modules-left": ["custom/launcher","hyprland/workspaces"],
-	"modules-center": ["clock"],
-    "modules-right": ["tray","custom/vpn","idle_inhibitor", "pulseaudio", "network", "backlight"],
+	//"modules-center": ["clock"],
+    "modules-right": ["tray","pulseaudio","custom/vpn","network","clock"],
     "hyprland/workspaces": {
         "on-click": "activate",
         "disable-scroll": true,
@@ -13,7 +13,6 @@
             "1": "1 ",
             "2": "2 ",
             "3": "3 󰊖", 
-			// "3": "3 ",
             "4": "4 󰎆",
             "5": "5 󰨞",
             "6": "6 ",
@@ -30,14 +29,14 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "   ",
+            "deactivated": "   "
         }
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%a, %b %d - %I:%M %p}",
-		"format-alt": "{:%Y-%m-%d}"
+        "format": "{:%a, %d %I:%M %p}",
+		"on-click": "gnome-calendar"
     },
     "custom/launcher":{
 	    "format": "    ",
@@ -75,10 +74,10 @@
     "pulseaudio": {
         "scroll-step": 2,
         "format": "{icon} {volume}  {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth": " {icon}{volume}% {format_source} ",
         "format-bluetooth-muted": " {icon}  {format_source}",
         "format-muted": " {format_source}",
-        "format-source": " {volume}",
+        "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
             "headphone": " ",
@@ -92,10 +91,12 @@
         "on-click": "pavucontrol"
     },
     "custom/vpn": {
-        "format": "Homelab ",
-        "exec": "echo '{\"class\": \"connected\"}'",
-        "exec-if": "test -d /proc/sys/net/ipv4/conf/homelab",
-        "return-type": "json",
-        "interval": 5
+	   "format": " {icon}",
+       "exec": "$HOME/.config/waybar/modules/vpn.sh",
+       "return-type": "json",
+       "interval": 5,
+       "format-icons": [" "," "],  
+	   "on-click": "mullvad connect",
+	   "on-click-right": "mullvad disconnect"
     }
 }

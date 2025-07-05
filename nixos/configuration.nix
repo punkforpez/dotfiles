@@ -191,6 +191,8 @@
 	tmux
 	dfc
 	pavucontrol
+	dysk
+	gnome-calendar
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -203,6 +205,8 @@
 
   # List services that you want to enable:
   services.flatpak.enable = true;
+  services.mullvad-vpn.enable = true; 
+  #services.mullvad-vpn.package = pkgs.mullvad-vpn;
   
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
