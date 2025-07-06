@@ -25,7 +25,7 @@ alias nixupgrade='sudo nixos-rebuild switch --upgrade'
 #alias pacman='sudo pacman'
 #alias pacrm='sudo pacman -Rs'
 #alias pacq='sudo pacman -Q'
-#alias pacorph='sudo pacman -Rns $(pacman -Qtdq)' 
+#alias pacorph='sudo pacman -Rns $(pacman -Qtdq)'
 
 # Debian related
 #alias apt='sudo apt'
@@ -51,7 +51,7 @@ alias psa="ps aux"
 alias kk="uname -mrs"
 alias clp="clear;ls;pwd"
 alias p3="ping -c 3"
-alias sf="clear; fastfetch;"
+alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/blackmage.png"
 alias sfa='clear; echo; fastfetch; echo;'
 alias mem='top -l1 | grep PhysMem'
 alias cat='bat'
