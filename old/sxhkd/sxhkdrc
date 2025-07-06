@@ -4,7 +4,7 @@ super + Return
     termite
 
 super + space
-    rofi -show run
+    rofi -show drun
 
 # dmenu on upper bar, using gruvbox colors.
 super + p

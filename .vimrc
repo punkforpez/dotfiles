@@ -1,3 +1,4 @@
+" .vimrc
 " Appearance
 set background=dark
 syntax on
