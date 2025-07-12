@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "height": 25,
-    "modules-left": ["custom/launcher","niri/workspaces"],
+    "modules-left": ["custom/launcher","hyprland/workspaces"],
 	//"modules-center": ["clock"],
     "modules-right": ["tray","pulseaudio","custom/vpn","network","clock"],
     "hyprland/workspaces": {
