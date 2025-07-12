@@ -1,61 +1,102 @@
 {
-	"layer": "top",
-	// Using margin-bottom with a negative value in order to reduce the space between Hyprland window and waybar
-	"margin-bottom": -10,
-	"margin-top": 2,
-	"modules-left": ["custom/launcher","hyprland/workspaces", "tray"],
-	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["backlight","pulseaudio","clock", "battery", "custom/power"],
-	
-	"pulseaudio": {
-		"tooltip": false,
-		"scroll-step": 5,
-		"format": "{icon} {volume}%",
-		"format-muted": "{icon} {volume}%",
-		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"format-icons": {
-			"default": [" ", " ", " "]
-		}
-	},
-	"tray":{
-		"icon-size":18,
-		"spacing": 8
-	},
+    "layer": "top",
+    "height": 25,
+    "modules-left": ["custom/launcher","hyprland/workspaces"],
+	//"modules-center": ["clock"],
+    "modules-right": ["tray","pulseaudio","custom/vpn","network","clock"],
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1 ",
+            "2": "2 ",
+            "3": "3 󰊖", 
+            "4": "4 󰎆",
+            "5": "5 󰨞",
+            "6": "6 ",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        }
+    },
+    "hyprland/window": {
+        "max-length": 200,
+        "separate-outputs": true
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "   ",
+            "deactivated": "   "
+        }
+    },
     "clock": {
-       // "format": "{: l %H:%M %p   %d/%m/%Y}"
-    },
-    "cpu": {
-        "interval": 15,
-        "format": " {}%",
-        "max-length": 10
-    },
-    "memory": {
-        "interval": 30,
-        "format": " {}%",
-        "max-length": 10
-    },
-    //"custom/spotify": {
-    	"interval": 1,
-	"return-type": "json",
-	"exec": "~/.config/waybar/scripts/spotify.sh",
-	"exec-if": "pgrep spotify",
-	"escape": true
-
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%a, %d %I:%M %p}",
+		"on-click": "gnome-calendar"
     },
     "custom/launcher":{
-        "format": "",
+	    "format": "    ",
         "on-click": "rofi -show drun",
         "on-click-right": "killall rofi"
     },
-    "custom/power":{
-        "format": " ",
-        "on-click": "bash ~/.config/rofi/leave/leave.sh",
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", ""]
     },
-    // The code following below is given in the great documentation for Waybar status bar under Useful Utilities in Hyprland wiki
-    "hyrpland/workspaces": {
-    	"format": "{icon}",
-	"on-scroll-up": "hyprctl dispatch workspace e+1",
-	"on-scroll-down": "hyprctl dispatch workspace e-1",
-	"on-click": "activate"
-	}
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "",
+        "format-full": "100% ",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+    	"format": "{ifname}",
+	    "format-ethernet": "  ",
+        "format-wifi": "{essid} ",
+        "format-linked": "{ifname} (No IP) ",
+       	"format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "scroll-step": 2,
+        "format": "{icon} {volume}  {format_source}",
+        "format-bluetooth": " {icon}{volume}% {format_source} ",
+        "format-bluetooth-muted": " {icon}  {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/vpn": {
+	   "format": " {icon}",
+       "exec": "$HOME/.config/waybar/modules/vpn.sh",
+       "return-type": "json",
+       "interval": 5,
+       "format-icons": [" "," "],  
+	   "on-click": "mullvad connect",
+	   "on-click-right": "mullvad disconnect"
+    }
 }
