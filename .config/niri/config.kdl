@@ -3,12 +3,7 @@
 // Environment settings
 environment {
 	ELECTRON_OZONE_PLATFORM_HINT "auto"
-    //QT_QPA_PLATFORM "xwayland:xcb"
-    //QA_QPA_PLATFORMTHEME "qt5ct:qt6ct"
-    //SOL_VIDEODRIVER "wayland"
-    //_JAVA_AWT_WM_NONREPARENTING "1"
 	DISPLAY ":0"
-	XWAYLAND_ENABLE "1"
 }
 // Input device configuration. //
 input {
@@ -22,17 +17,9 @@ input {
         }
     }
     touchpad {
-        // off
         tap
-        // dwt
-        // dwtp
         natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "two-finger"
-        // disabled-on-external-mouse
     }
-
     mouse {
         // off
         // natural-scroll
@@ -45,37 +32,7 @@ input {
     // focus-follows-mouse max-scroll-amount="10%"
 }
 
-// Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
-    // Uncomment this line to disable this output.
-    // off
-
-    // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
-
-    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
-
-    // Transform allows to rotate the output counter-clockwise, valid values are:
-    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    transform "normal"
-
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
-    position x=1280 y=0
-}
+// DISPLAYS //
 
 /-output "DP-3" {
     mode "1280x1024@75.025"
@@ -87,11 +44,8 @@ input {
     position x=0 y=0
 }
 
-// Settings that influence how windows are positioned and sized.
-// Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
-    // Set gaps around windows in logical pixels.
     gaps 10
 
     // When to center a column when changing focus, options are:
@@ -133,16 +87,10 @@ layout {
 
     // You can change how the focus ring looks.
     focus-ring {
-        // Uncomment this line to disable the focus ring.
         // off
 
         // How many logical pixels the ring extends out from the windows.
         width 2
-
-        // Colors can be set in a variety of ways:
-        // - CSS named colors: "red"
-        // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
-        // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
         active-color "#d3879b"
@@ -192,11 +140,7 @@ layout {
     }
 }
 
-// Add lines like this to spawn processes at startup.
-// Note that running niri as a session supports xdg-desktop-autostart,
-// which may be more convenient to use.
-// See the binds section below for more spawn examples.
-// spawn-at-startup "alacritty" "-e" "fish"
+// ON STARTUP //
 spawn-at-startup "waybar"
 spawn-at-startup "hyprpaper"
 spawn-at-startup "hyprsunet"
@@ -206,22 +150,17 @@ spawn-at-startup "xwayland-satellite"
 /-spawn-at-startup "wl-paste" "--watch" "clapboard" "store"
 
 
-// Uncomment this line to ask the clients to omit their client-side decorations if possible.
-// If the client will specifically ask for CSD, the request will be honored.
-// Additionally, clients will be informed that they are tiled, removing some rounded corners.
+// MISC //
+// Omit their client-side decorations if possible.
 prefer-no-csd
 
-// You can change the path where screenshots are saved.
-// A ~ at the front will be expanded to the home directory.
-// The path is formatted with strftime(3) to give you the screenshot date and time.
+// Screenshot Path
 screenshot-path "~/Downloads/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
 
-// Animation settings.
-// The wiki explains how to configure individual animations:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+// ANIMATION //
 animations {
     // Uncomment to turn off all animations.
     // off
@@ -271,9 +210,7 @@ animations {
     }
 }
 
-// Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+// WINDOW RULES //
 
 window-rule {
     min-height 400
@@ -301,36 +238,33 @@ window-rule {
 
 window-rule {
     match app-id="kitty"
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.3; }
 }
-
-
+window-rule {
+	match app-id="com.mitchellh.ghostty"
+	default-column-width { proportion 0.3; }
+}
 window-rule {
     match app-id="firefox"
     default-column-width { fixed 1425; }
     /-open-on-output "HDMI-A-1"
     draw-border-with-background true    
 }
-
+window-rule {
+	match app-id="org.kde.dolphin"
+    default-column-width { proportion 0.4; }
+}
 window-rule {
     match app-id="vesktop"
     default-column-width { fixed 920; }
     open-maximized true
     open-on-output "DP-1"
 }
-
 window-rule {
     match app-id="code"
     default-column-width { fixed 920; }
     open-maximized true
 }
-
-window-rule {
-    match app-id="vlc"
-    default-column-width { fixed 920; }
-    open-maximized true
-}
-
 window-rule {
     match app-id="org.kde.dolphin"
     default-column-width { proportion 0.75; }
@@ -370,29 +304,27 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return { spawn "kitty"; }
+    Mod+Return { spawn "ghostty"; }
 	Mod+Shift+Space { toggle-window-floating; }
     Mod+Space { spawn "rofi" "-show" "drun"; }
     Mod+E { spawn "dolphin"; }
+    Mod+O { toggle-overview; }
     Super+Shift+L { spawn "hyprlock"; }
     //Mod+Shift+C { spawn "fish" "-c" "notify-send -a 'Hyprpicker' -t 10000 'Copied color:' $(hyprpicker -a -n)"; }
     Mod+V { spawn "clapboard"; }
 
-    // You can also use a shell. Do this if you need pipes, multiple commands, etc.
-    // Note: the entire command goes as a single argument in the end.
-    // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
-
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next"; }
-    XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous"; }
-    XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    //XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    //XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    //XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    //XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    //XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next"; }
+    //XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous"; }
+    //XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause"; }
 
     Mod+Q { close-window; }
+    Mod+W { toggle-column-tabbed-display; }
 
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
@@ -405,6 +337,10 @@ binds {
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Right { move-column-right; }
+    Mod+Ctrl+H 	   { move-column-left; }
+    Mod+Ctrl+J     { move-window-down; }
+    Mod+Ctrl+K     { move-window-up; }
+    Mod+Ctrl+L     { move-column-right; }
     //Mod+Ctrl+H     { move-column-left; }
     //Mod+Ctrl+J     { move-window-down; }
     //Mod+Ctrl+K     { move-window-up; }

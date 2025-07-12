@@ -55,7 +55,8 @@ alias psa="ps aux"
 alias kk="uname -mrs"
 alias clp="clear;ls;pwd"
 alias p3="ping -c 3"
-alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/cat.png"
+alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/nix-color.png"
+#alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/cat.png"
 #alias sf="clear; fastfetch;"
 alias sfa='clear; echo; fastfetch; echo;'
 alias mem='top -l1 | grep PhysMem'
@@ -63,7 +64,7 @@ alias cat='bat'
 alias dfc='clear; echo; dysk;echo;'
 
 # Editing and sourcing .zshrc
-alias zedit="nvim ~/.zshrc"
+alias zedit="vim ~/.zshrc"
 #alias zmouse="mousepad ~/.zshrc"
 #uncomment and replace with GUI editor of choice
 alias zsource="source ~/.zshrc"
