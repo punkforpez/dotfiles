@@ -1,26 +1,23 @@
--- wezterm.lua - github.com/punkforpez/dotfiles
 -- Add Wezterm API
 local wezterm = require 'wezterm'
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
--- Begin configuration options.
-
 -- Tab bar
 enable_tab_bar = false
 
--- Initial window geometry on spawn.
--- Might need to disable for some tiling windoge managers.
--- Hyprland config overwrites this anyways with a floating window.
-config.initial_cols = 80
-config.initial_rows = 30
+-- For example, changing the initial geometry for new windows:
+-- Disable for Linux tiling window managers
+--config.initial_cols = 80
+--config.initial_rows = 30
 
--- Window dressing and fonts
+-- or, changing the font size and color scheme.
 config.font_size = 14
 config.line_height = 1.1
 config.font = wezterm.font 'Hack'
-config.color_scheme = 'Gruvbox dark, medium (base16)'
+config.color_scheme = 'Catppuccin Mocha'
+--config.color_scheme = 'Gruvbox dark, medium (base16)'
 config.window_close_confirmation = 'NeverPrompt'
 
 -- Tab Bar customization
@@ -30,11 +27,11 @@ config.tab_max_width = 50
 
 -- Command Palette
 config.keys = {
-    {
-        key = 'p',
-        mods = 'CTRL',
-        action = wezterm.action.ActivateCommandPalette,
-    },
+  {
+    key = 'p',
+    mods = 'CTRL',
+    action = wezterm.action.ActivateCommandPalette,
+  },
 }
 config.command_palette_font_size = 16
 

@@ -1,24 +1,18 @@
+# https://github.com/punkforpez/dotfiles.git
+
 # Appearance
-#
-#theme = rose-pine
-theme = GruvboxDark
-#theme = catppuccin-mocha
-#theme = everforest-dark-hard
-background-opacity = 0.90
+#theme = GruvboxDark
+theme = catppuccin-mocha
+background-opacity = 0.85
 background-blur-radius = 40
 cursor-style = block
 cursor-style-blink = false
-cursor-invert-fg-bg = true
 font-family = "Hack Regular"
-font-size = 12
-
-# macOS-specific settings
-macos-titlebar-style = tabs
-macos-option-as-alt = true
+font-size = 13
 
 # Window
-window-padding-x = 10
-window-padding-y = 10
+window-padding-x = 6
+window-padding-y = 6
 window-padding-balance = true
 window-save-state = always
 window-inherit-font-size = true
@@ -27,3 +21,4 @@ window-inherit-font-size = true
 #shell-integration-features = true
 shell-integration = zsh
 #copy-on-select = clipboard
+confirm-close-surface = false

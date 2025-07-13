@@ -1,12 +1,12 @@
-# .zshrc - github.com/punkforpez
+# https://github.com/punkforpez/dotfiles.git
+# zshrc
 
 # Set the prompt to something more pleasing
 PS1='%F{cyan}%m %f%b%# '
 
 # Boring $PATH business:
-# This is recently updated for NixOS
-# TODO: Clean up this section
 export PATH="/run/wrappers/bin:/run/current-system/sw/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/local/bin"a
+
 # For Homebrew (uncomment on MacOS / NixOS will spit out errors if active
 #export PATH="/opt/homebrew/bin:$PATH"
 
@@ -14,11 +14,14 @@ export PATH="/run/wrappers/bin:/run/current-system/sw/bin:/usr/local/bin:/usr/bi
 alias h="cd ~"
 alias up="cd .."
 alias ddl='cd ~/Downloads; clear; pwd; ls'
+alias cdc='cd ~/.config/; pwd'
 
-# nixOS related
+# nixOS Related
 alias nixedit='sudo vim /etc/nixos/configuration.nix'
 alias nixbuild='sudo nixos-rebuild switch'
 alias nixclean='sudo nix-collect-garbage -d'
+
+# Hyprland/Niri related
 alias redshift='hyprctl hyprsunset temperature 4500'
 alias blueshift='hyprctl hyprsunset temperature 6500'
 alias waybar-reload='pkill waybar && hyprctl dispatch exec waybar'
@@ -32,8 +35,8 @@ alias blue='gammastep -O 6000 &' # manual use for Sway
 #alias pacorph='sudo pacman -Rns $(pacman -Qtdq)'
 
 # Debian related
-alias apt='sudo apt'
-alias nala='sudo nala' # better wrapper for Apt, in main Debian repo
+#alias apt='sudo apt'
+#alias nala='sudo nala' # better wrapper for Apt, in main Debian repo
 
 # Git-related
 alias gpull='git pull -v'
@@ -50,28 +53,26 @@ export PATH
 alias f='fzf'
 alias ls="ls --color=auto"
 alias cl="clear; ls"
-alias vi='vim'
+alias vi='nvim'
 alias psa="ps aux"
 alias kk="uname -mrs"
 alias clp="clear;ls;pwd"
 alias p3="ping -c 3"
 alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/nix-color.png"
 #alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/cat.png"
-#alias sf="clear; fastfetch;"
-alias sfa='clear; echo; fastfetch; echo;'
+#alias sfa='clear; echo; fastfetch; echo;'
+
+# Utility 
 alias mem='top -l1 | grep PhysMem'
 alias cat='bat'
 alias dfc='clear; echo; dysk;echo;'
 
 # Editing and sourcing .zshrc
-alias zedit="vim ~/.zshrc"
-#alias zmouse="mousepad ~/.zshrc"
-#uncomment and replace with GUI editor of choice
+alias zedit="nvim ~/.zshrc"
 alias zsource="source ~/.zshrc"
 
 # Move and follow file to new dir:
-# Example (from ~) mvf test.txt ~/downloads will move the file
-# to ~/downloads and cd to that directory.
+# Example (from ~) mvf test.txt ~/downloads
 function mvf {
   if [[ -d $*[-1] ]]; then
     mv $* && cd $*[-1]
