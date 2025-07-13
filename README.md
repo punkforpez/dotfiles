@@ -28,15 +28,6 @@ A lot of people like to toss around the concept of a "Second Brain", which is fi
 ![Obsidian as a Commonplace Book](/images/obsidian.png)
 
 ***
-
-## Alterations to this repo:
-
-- [x] Updated .vimrc
-- [x] Updated .zshrc
-- [ ] Configuration for Hyprland on NixOS
-- [ ] Updated and cleaned-up NixOS configuration.nix
-
-
 ## Summary of Files
 > To be completed and fleshed out later
 * ~/bin
