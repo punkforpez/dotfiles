@@ -1,7 +1,4 @@
-# .zshrc - github.com/punkforpez
-# First created on Arch Linux in 2011
-# This iteration contains modified sections for controlling Homebrew and other MacOS-related aliases.
-# Also of note is the section for enabling zsh-syntax-highlighting on MacOS and the Nix configuration will be separate here.
+# https://github.com/punkforpez/dotfiles.git
 
 # Set the prompt to something more pleasing
 PS1='%F{cyan}%m %f%b%# '
@@ -10,8 +7,9 @@ PS1='%F{cyan}%m %f%b%# '
 # This is recently updated for NixOS
 # TODO: Clean up this section
 export PATH="/run/wrappers/bin:/run/current-system/sw/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/local/bin"a
+
 # For Homebrew (uncomment on MacOS / NixOS will spit out errors if active
-#export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 
 # Basic Navigation
 alias h="cd ~"
@@ -19,9 +17,16 @@ alias up="cd .."
 alias ddl='cd ~/Downloads; clear; pwd; ls'
 
 # nixOS related
-#alias nixedit='sudo vim /etc/nixos/configuration.nix'
-#alias nixbuild='sudo nixos-rebuild switch'
-#alias nixupgrade='sudo nixos-rebuild switch --upgrade'
+alias nixedit='sudo vim /etc/nixos/configuration.nix'
+alias nixbuild='sudo nixos-rebuild switch'
+alias nixupgrade='sudo nixos-rebuild switch --upgrade'
+
+# Hyprland/Niri related
+alias redshift='hyprctl hyprsunset temperature 4500'
+alias blueshift='hyprctl hyprsunset temperature 6500'
+alias waybar-reload='pkill waybar && hyprctl dispatch exec waybar'
+alias red='gammastep -O 4500 &' # manual use for Sway
+alias blue='gammastep -O 6000 &' # manual use for Sway
 
 # Arch Linux  related
 #alias pacman='sudo pacman'
@@ -48,19 +53,20 @@ export PATH
 alias f='fzf'
 alias ls="ls --color=auto"
 alias cl="clear; ls"
-alias vi='vim'
+alias vi='nvim'
 alias psa="ps aux"
 alias kk="uname -mrs"
 alias clp="clear;ls;pwd"
 alias p3="ping -c 3"
-alias sf="clear; fastfetch;"
+#alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/nix-color.png"
+alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/cat.png"
 alias sfa='clear; echo; fastfetch; echo;'
 alias mem='top -l1 | grep PhysMem'
 alias cat='bat'
 alias dfc='clear; echo; dfc -f;echo;'
-
+alias py='python3'
 # Editing and sourcing .zshrc
-alias zedit="vim ~/.zshrc"
+alias zedit="nvim ~/.zshrc"
 # Uncomment and replace 'mousepad' with favorite GUI editor
 #alias zmouse="mousepad ~/.zshrc"
 alias zsource="source ~/.zshrc"
@@ -89,5 +95,5 @@ function cpf {
 # Syntax Highlighting - must be last in .zshrc
 #eval "$(starship init zsh)"
 # Uncomment below if not on NixOS
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
