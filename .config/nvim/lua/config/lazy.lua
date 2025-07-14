@@ -51,3 +51,4 @@ require("lazy").setup({
     },
   },
 })
+require("lazy").load({ plugins = { "dooing" } })
