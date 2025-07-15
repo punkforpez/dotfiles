@@ -21,6 +21,10 @@ require("lazy").setup({
     -- import/override with your plugins
     { import = "plugins" },
   },
+
+  -- Fuzzy Finder (files, lsp, etc)
+  { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
     -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
@@ -51,4 +55,6 @@ require("lazy").setup({
     },
   },
 })
+
+-- Dooing (todo tracker)
 require("lazy").load({ plugins = { "dooing" } })
