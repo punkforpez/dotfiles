@@ -8,12 +8,9 @@
 
 My new baby. I have recently fallen absolutely in love with NixOS since testing it out. I decided to replace one of my partitions to test it out and ended up liking it so much I made it my primary distro. I am not sure if it will ever replace MacOS as my main operating system, but if I ever escape the "Apple Ecosystem" this will absolutely slide into place.
 
-
-
 ## MacOS 26 Tahoe
 
 ![MacOS](/images/mac.png)
-
 
 ## Editing and coding
 

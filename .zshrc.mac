@@ -15,18 +15,19 @@ export PATH="/opt/homebrew/bin:$PATH"
 alias h="cd ~"
 alias up="cd .."
 alias ddl='cd ~/Downloads; clear; pwd; ls'
+alias cdc='cd ~/.config; pwd'
 
 # nixOS related
-alias nixedit='sudo vim /etc/nixos/configuration.nix'
-alias nixbuild='sudo nixos-rebuild switch'
-alias nixupgrade='sudo nixos-rebuild switch --upgrade'
+#alias nixedit='sudo vim /etc/nixos/configuration.nix'
+#alias nixbuild='sudo nixos-rebuild switch'
+#alias nixupgrade='sudo nixos-rebuild switch --upgrade'
 
 # Hyprland/Niri related
-alias redshift='hyprctl hyprsunset temperature 4500'
-alias blueshift='hyprctl hyprsunset temperature 6500'
-alias waybar-reload='pkill waybar && hyprctl dispatch exec waybar'
-alias red='gammastep -O 4500 &' # manual use for Sway
-alias blue='gammastep -O 6000 &' # manual use for Sway
+# alias redshift='hyprctl hyprsunset temperature 4500'
+# alias blueshift='hyprctl hyprsunset temperature 6500'
+# alias waybar-reload='pkill waybar && hyprctl dispatch exec waybar'
+# alias red='gammastep -O 4500 &' # manual use for Sway
+# alias blue='gammastep -O 6000 &' # manual use for Sway
 
 # Arch Linux  related
 #alias pacman='sudo pacman'
@@ -50,16 +51,18 @@ path+=('/usr/local/bin')
 export PATH
 
 # General purpose aliases
-alias f='fzf'
+#alias f='fzf'
 alias ls="ls --color=auto"
 alias cl="clear; ls"
 alias vi='nvim'
+alias vf='nvim $(fzf)' # use fuzzy search to load file
 alias psa="ps aux"
 alias kk="uname -mrs"
 alias clp="clear;ls;pwd"
 alias p3="ping -c 3"
 #alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/nix-color.png"
-alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/cat.png"
+#alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/cat.png"
+alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/apple.png"
 alias sfa='clear; echo; fastfetch; echo;'
 alias mem='top -l1 | grep PhysMem'
 alias cat='bat'
@@ -89,6 +92,17 @@ function cpf {
     cp $* && cd $*[-1]
   elif [[ -d ${*[-1]%/*} ]]; then
     cp $* && cd ${*[-1]%/*}
+  fi
+}
+
+# Open in fzf
+f() {
+  selection=$(fzf --preview 'bat --style=numbers --color=always {} || ls -al {}')
+
+  if [[ -d "$selection" ]]; then
+      cd "$selection" || return
+  elif [[ -f "$selection" ]]; then
+      nvim "$selection"
   fi
 }
 
