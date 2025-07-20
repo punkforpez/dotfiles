@@ -1,17 +1,17 @@
 // github.com/punkforpez/dotfiles.git
 
-// ENVIRONMENT SETTINGS //
+// Environment Settings
 environment {
 	ELECTRON_OZONE_PLATFORM_HINT "auto"
 	DISPLAY ":0"
 }
 
-// INPUT DEVICES //
+// Input
 input {
     keyboard {
         track-layout "global"
-        repeat-delay 350
-        repeat-rate 30
+        repeat-delay 200
+        repeat-rate 20
         xkb {
             layout "us"
             options "grp:alt_shift_toggle"
@@ -28,23 +28,12 @@ input {
         accel-profile "adaptive"
         // scroll-method "no-scroll"
     }
-    // warp-mouse-to-focus
-    // Focus windows and outputs automatically when moving the mouse into them.
-    // focus-follows-mouse max-scroll-amount="10%"
 }
 
-// DISPLAYS //
-/-output "DP-3" {
-    mode "1280x1024@75.025"
-    position x=-1280 y=0
-}
+// Displays
+// Add specific displays for additional monitors
 
-/-output "HDMI-A-1" {
-    mode "1920x1080@74.973"
-    position x=0 y=0
-}
-
-// LAYOUT //
+// Layout
 layout {
     gaps 8
 
@@ -53,43 +42,23 @@ layout {
     //   or right edge of the screen.
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
-    //   together with the previously focused column.
     center-focused-column "never"
 
-    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+    // Customize preset column spawn layouts
     preset-column-widths {
-        // Proportion sets the width as a fraction of the output width, taking gaps into account.
-        // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
-        // The default preset widths are 1/3, 1/2 and 2/3 of the output.
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
-
-        // Fixed sets the width in logical pixels exactly.
-        // fixed 1920
     }
 
-    // You can change the default width of the new windows.
     default-column-width { proportion 0.5; }
-    //default-column-width { proportion 0.66667; }
-   
-    // If you leave the brackets empty, the windows themselves will decide their initial width.
-    // default-column-width {}
 
-
-    // FOCUS RING //
+    // Focus Ring
     focus-ring {
         // off
-
-        // How many logical pixels the ring extends out from the windows.
         width 2
-
-        // Color of the ring on the active monitor.
-        active-color "#d3879b"
-
-        // Color of the ring on inactive monitors.
-        inactive-color "#111716"
-
+        active-color "#cba6f7" // Color of the ring on the active monitor.
+        inactive-color "#585b70" // color of the inactive monitor
         // active-gradient from="#80c8ff" to="#bbddff" angle=45
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
@@ -98,20 +67,11 @@ layout {
     border {
         // If you enable the border, you probably want to disable the focus ring.
         off
-        
         width 1
         active-color "#13171e"
         inactive-color "#505050"
-
-        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
-    // Struts shrink the area occupied by windows, similarly to layer-shell panels.
-    // You can think of them as a kind of outer gaps. They are set in logical pixels.
-    // Left and right struts will cause the next window to the side to always be visible.
-    // Top and bottom struts will simply add outer gaps in addition to the area occupied by
-    // layer-shell panels and regular gaps.
     struts {
         // left 64
         // right 64
@@ -120,30 +80,27 @@ layout {
     }
 }
 
-// STARTUP //
+// Startup
 spawn-at-startup "waybar"
 spawn-at-startup "hyprpaper"
 spawn-at-startup "hyprsunet"
 spawn-at-startup "xwayland-satellite"
 /-spawn-at-startup "vesktop" "--ozone-platform-hint=auto"
-/-spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 /-spawn-at-startup "wl-paste" "--watch" "clapboard" "store"
 
-
-// MISC //
+// Miscellaneous
 // Omit their client-side decorations if possible.
 prefer-no-csd
 
 // Screenshot Path
 screenshot-path "~/Downloads/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
 
-// ANIMATION //
+// Animation
 animations {
     // Uncomment to turn off all animations.
-    // off
+    //off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
@@ -190,7 +147,7 @@ animations {
     }
 }
 
-// WINDOW RULES //
+// Window rules
 
 window-rule {
     min-height 400
@@ -269,29 +226,17 @@ window-rule {
 }
 
 binds {
-    // Keys consist of modifiers separated by + signs, followed by an XKB key name
-    // in the end. To find an XKB name for a particular key, you may use a program
-    // like wev.
-    //
-    // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
-    // when running as a winit window.
-    //
-    // Most actions that you can bind here can also be invoked programmatically with
-    // `niri msg action do-something`.
-
-    // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return { spawn "ghostty"; }
+    Mod+Return { spawn "wezterm"; }
 	  Mod+Shift+Space { toggle-window-floating; }
     Mod+Space { spawn "fuzzel"; } 
     //Mod+Space { spawn "rofi" "-show" "drun"; }
     Mod+E { spawn "dolphin"; }
     Mod+O { toggle-overview; }
     Super+Shift+L { spawn "hyprlock"; }
-    //Mod+Shift+C { spawn "fish" "-c" "notify-send -a 'Hyprpicker' -t 10000 'Copied color:' $(hyprpicker -a -n)"; }
     Mod+V { spawn "clapboard"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -322,10 +267,6 @@ binds {
     Mod+Ctrl+J     { move-window-down; }
     Mod+Ctrl+K     { move-window-up; }
     Mod+Ctrl+L     { move-column-right; }
-    //Mod+Ctrl+H     { move-column-left; }
-    //Mod+Ctrl+J     { move-window-down; }
-    //Mod+Ctrl+K     { move-window-up; }
-    //Mod+Ctrl+L     { move-column-right; }
 
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
@@ -415,14 +356,7 @@ binds {
     // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
     // Mod+TouchpadScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
 
-    // You can refer to workspaces by index. However, keep in mind that
-    // niri is a dynamic workspace system, so these commands are kind of
-    // "best effort". Trying to refer to a workspace index bigger than
-    // the current workspace count will instead refer to the bottommost
-    // (empty) workspace.
-    //
-    // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
-    // will all refer to the 3rd workspace.
+    // Focus workspaces
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -448,6 +382,7 @@ binds {
     // Switches focus between the current and the previous workspace.
     // Mod+Tab { focus-workspace-previous; }
 
+    // Consume/expel windows together (combine with tab functionality) Super+W
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
 
@@ -461,28 +396,12 @@ binds {
     Mod+Shift+F { fullscreen-window; }
     Mod+C { center-column; }
 
-    // Finer width adjustments.
-    // This command can also:
-    // * set width in pixels: "1000"
-    // * adjust width in pixels: "-5" or "+5"
-    // * set width as a percentage of screen width: "25%"
-    // * adjust width as a percentage of screen width: "-10%" or "+10%"
-    // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
-    // set-column-width "100" will make the column occupy 200 physical screen pixels.
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
 
     // Finer height adjustments when in column with other windows.
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
-
-    // Actions to switch layouts.
-    // Note: if you uncomment these, make sure you do NOT have
-    // a matching layout switch hotkey configured in xkb options above.
-    // Having both at once on the same hotkey will break the switching,
-    // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-    // Mod+Space       { switch-layout "next"; }
-    // Mod+Shift+Space { switch-layout "prev"; }
 
     Mod+P { screenshot; }
     Mod+Shift+S { screenshot; }
