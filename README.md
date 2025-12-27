@@ -10,7 +10,7 @@ My new baby. I have recently fallen absolutely in love with NixOS since testing 
 
 ## KDE Plasma
 
-![KDE](/images/kdepng)
+![KDE](/images/kde.png)
 
 I have been using KDE a lot more lately as well. I still think Niri will be my main environment, but having KDE tuned so well is very nice.
 
