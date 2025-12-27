@@ -8,6 +8,12 @@
 
 My new baby. I have recently fallen absolutely in love with NixOS since testing it out. I decided to replace one of my partitions to test it out and ended up liking it so much I made it my primary distro. I am not sure if it will ever replace MacOS as my main operating system, but if I ever escape the "Apple Ecosystem" this will absolutely slide into place.
 
+## KDE Plasma
+
+![KDE](/images/kdepng)
+
+I have been using KDE a lot more lately as well. I still think Niri will be my main environment, but having KDE tuned so well is very nice.
+
 ## MacOS 26 Tahoe
 
 ![MacOS](/images/mac.png)
