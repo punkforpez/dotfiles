@@ -27,6 +27,10 @@ Distro and environment agnostic applications are a must. There are, of course, s
 - Obsidian: The best damn writing environment, period.
 - VS Code
 - [Zed](https://zed.dev): A new code editor to me. Looking to replace VS Code.
+- [Kate](https://kde.org): The *amazing* Kate editr
+
+
+
 
 ## MacOS Specific
 
