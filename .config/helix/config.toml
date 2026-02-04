@@ -1,0 +1,55 @@
+# Helix config
+#
+theme = "rose_pine"
+
+[editor]
+#line-number = "relative"
+bufferline = "multiple"
+cursorline = true
+#mouse = false
+true-color = true
+
+[editor.file-picker]
+hidden = false
+git-ignore = false
+
+[editor.cursor-shape]
+insert = "bar"
+
+# status line from github.com/ravsii/helix/blob/main/config.toml
+[editor.statusline]
+left = [
+  "mode",
+  "spacer",
+  "version-control",
+  "spacer",
+  "separator",
+  "file-name",
+  "file-modification-indicator"
+]
+right = [
+  "spinner",
+  "spacer",
+  "workspace-diagnostics",
+  "separator",
+  "spacer",
+  "diagnostics",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+]
+separator = "|"
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
+
+[editor.lsp]
+display-messages = true
+
+[editor.indent-guides]
+render = true
+#character = "|"
+
+[keys.insert]
+C-space = "completion"

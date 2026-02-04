@@ -13,9 +13,12 @@ enable_tab_bar = false
 --config.initial_rows = 30
 
 -- or, changing the font size and color scheme.
-config.font_size = 14
+config.font_size = 12
 config.line_height = 1.1
-config.font = wezterm.font 'Hack'
+--config.font = wezterm.font 'Noto Sans Mono'
+config.font = wezterm.font 'JetBrains Mono'
+-- config.color_scheme = 'nord'
+--config.color_scheme = "Everblush"
 config.color_scheme = 'Catppuccin Mocha'
 --config.color_scheme = 'Gruvbox dark, medium (base16)'
 config.window_close_confirmation = 'NeverPrompt'
@@ -33,7 +36,7 @@ config.keys = {
     action = wezterm.action.ActivateCommandPalette,
   },
 }
-config.command_palette_font_size = 16
+config.command_palette_font_size = 14
 
 config.max_fps = 144
 config.front_end = "OpenGL"
