@@ -36,6 +36,12 @@ config.keys = {
     action = wezterm.action.ActivateCommandPalette,
   },
 }
+config.window_padding = {
+  left = 12,
+  right = 12,
+  top = 2,
+  bottom = 2,
+}
 config.command_palette_font_size = 14
 
 config.max_fps = 144
