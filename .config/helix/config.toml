@@ -53,3 +53,6 @@ render = true
 
 [keys.insert]
 C-space = "completion"
+
+[keys.normal]
+C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
