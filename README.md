@@ -1,46 +1,8 @@
 # Dotfiles
-> These dotfiles are used primarily across my Linux distro of choice (NixOS) and on my M1 MacBook Air running macOS Tahoe. They can also be used with other Linux distros, obviously, but are tailored to these two. There is a subset of aliases included for Arch Linux, which I also use from time to time as a secondary Linux distro.
+
+> These dotfiles are meant to be somewhat fluid between Linux and MacOS. Some items will need to be uncommented to hit parity.
 
 ## NixOS
+My primary computer runs NixOS and most of the dotfiles are tailored to this system. My primary Desktop Environment is [KDE](https://kde.org), though I often use Niri and ocassionally, Sway.
 
-![NixOS](/images/nix.png)
-![NixOS Busy](/images/nix-busy.png)
-
-My new baby. I have recently fallen absolutely in love with NixOS since testing it out. I decided to replace one of my partitions to test it out and ended up liking it so much I made it my primary distro. I am not sure if it will ever replace MacOS as my main operating system, but if I ever escape the "Apple Ecosystem" this will absolutely slide into place.
-
-## KDE Plasma
-
-![KDE](/images/kde.png)
-
-I have been using KDE a lot more lately as well. I still think Niri will be my main environment, but having KDE tuned so well is very nice.
-
-## MacOS 26 Tahoe
-
-![MacOS](/images/mac.png)
-
-## Editing and coding
-
-Most of my Github repo and coding work is done within [Zed](https://zed.dev), which is shaping up to be one of my favorite coding environments I've ever used. It's even taken me away from using Vim so much, which works out just fine because it has built-in Vim keybindings and editing modals!
-
-![Editing in Zed](/images/zed.png)
-
-## Obsidian; My Commonplace Book
-
-A lot of people like to toss around the concept of a "Second Brain", which is fine by me, but I prefer the term "Commonplace Book." Obsidian is this (and more!) for me in so many ways. It's even made better with workflows from Alfred or the Raycast extension (which I use heavily). I try to keep my plugins minimal to keep it fast and smooth and I am in love with the Everforest theme (of course).
-
-![Obsidian as a Commonplace Book](/images/obsidian.png)
-
-***
-## Summary of Files
-> To be completed and fleshed out later
-* ~/bin
-* zshrc
-* irssi configuration
-* tmux config
-* Termite terminal (w/ gruvbox theme)
-* i3 / i3status (gruvbox)
-* vim (gruvbox)
-* Xresources (gruvbox)
-* bspwm config (most likely to be removed as I move to hyprland)
-* kitty config
-* tilix config
+![KDE](images/kde.png)
