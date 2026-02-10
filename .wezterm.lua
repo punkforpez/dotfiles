@@ -17,10 +17,10 @@ config.font_size = 12
 config.line_height = 1.1
 --config.font = wezterm.font 'Noto Sans Mono'
 config.font = wezterm.font 'JetBrains Mono'
--- config.color_scheme = 'nord'
+--config.color_scheme = 'nord'
 --config.color_scheme = "Everblush"
-config.color_scheme = 'Catppuccin Mocha'
---config.color_scheme = 'Gruvbox dark, medium (base16)'
+config.color_scheme = 'Tokyo Night Storm'
+--config.color_scheme = 'Catppuccin Mocha'
 config.window_close_confirmation = 'NeverPrompt'
 
 -- Tab Bar customization
@@ -37,10 +37,10 @@ config.keys = {
   },
 }
 config.window_padding = {
-  left = 12,
-  right = 12,
-  top = 2,
-  bottom = 2,
+  left = 14,
+  right = 14,
+  top = 4,
+  bottom = 4,
 }
 config.command_palette_font_size = 14
 

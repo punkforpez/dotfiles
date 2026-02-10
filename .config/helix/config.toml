@@ -1,6 +1,7 @@
 # Helix config
 #
-theme = "rose_pine"
+theme = "tokyonight_storm"
+#theme = "rose_pine"
 
 [editor]
 #line-number = "relative"
