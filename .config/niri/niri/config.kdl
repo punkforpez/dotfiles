@@ -1,0 +1,427 @@
+// github.com/punkforpez/dotfiles.git
+
+// Environment Settings
+environment {
+	ELECTRON_OZONE_PLATFORM_HINT "auto"
+	DISPLAY ":0"
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_AUTO_SCREEN_SCALE_FACTOR "1.3"
+  /- QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+}
+
+// Input
+input {
+    keyboard {
+        track-layout "global"
+        repeat-delay 200
+        repeat-rate 20
+        xkb {
+            layout "us"
+            options "grp:alt_shift_toggle"
+        }
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+    mouse {
+        // off
+        // natural-scroll
+        accel-speed -0.1
+        accel-profile "adaptive"
+        // scroll-method "no-scroll"
+    }
+}
+
+// Displays
+// Add specific displays for additional monitors
+output "DP-1" {
+    scale 1.1;
+}
+// Layout
+layout {
+    gaps 8
+
+    // When to center a column when changing focus, options are:
+    // - "never", default behavior, focusing an off-screen column will keep at the left
+    //   or right edge of the screen.
+    // - "always", the focused column will always be centered.
+    // - "on-overflow", focusing a column will center it if it doesn't fit
+    center-focused-column "never"
+
+    // Customize preset column spawn layouts
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.5; }
+
+    // Focus Ring
+    focus-ring {
+        // off
+        width 2
+        active-color "#9aa5ce"
+        //active-color "#cba6f7" // Color of the ring on the active monitor.
+        inactive-color "#585b70" // color of the inactive monitor
+        // active-gradient from="#80c8ff" to="#bbddff" angle=45
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+
+    // You can also add a border. It's similar to the focus ring, but always visible.
+    border {
+        // If you enable the border, you probably want to disable the focus ring.
+        off
+        width 1
+        active-color "#eba0acff"
+        //active-color "#13171e"
+        inactive-color "#505050"
+    }
+
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
+}
+
+// Startup
+spawn-at-startup "waybar"
+spawn-at-startup "hyprpaper"
+spawn-at-startup "hyprsunset"
+spawn-at-startup "xwayland-satellite"
+/-spawn-at-startup "vesktop" "--ozone-platform-hint=auto"
+/-spawn-at-startup "wl-paste" "--watch" "clapboard" "store"
+
+// Miscellaneous
+// Omit their client-side decorations if possible.
+prefer-no-csd
+
+// Screenshot Path
+screenshot-path "~/Downloads/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+// You can also set this to null to disable saving screenshots to disk.
+// screenshot-path null
+
+// Animation
+animations {
+    // Uncomment to turn off all animations.
+    //off
+
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    // slowdown 3.0
+
+    window-close {
+        duration-ms 200
+        curve "linear"
+
+        custom-shader r"
+            // Example: make the window 'fall down' with slight rotation.
+            vec4 close_color(vec3 coords_geo, vec3 size_geo) {
+                // For this shader, set animation curve to linear for best results.
+
+                // Simulate an accelerated fall: square the (linear) progress.
+                float progress = niri_clamped_progress * niri_clamped_progress;
+
+                // Get our rotation pivot point coordinates at the bottom center of the window.
+                vec2 coords = (coords_geo.xy - vec2(0.5, 1.0)) * size_geo.xy;
+
+                // Move the window down to simulate a fall.
+                coords.y -= progress * 200.0;
+
+                // Randomize rotation direction and maximum angle.
+                float random = (niri_random_seed - 0.5) / 2.0;
+                random = sign(random) - random;
+                float max_angle = 0.05 * random;
+
+                // Rotate the window around our pivot point.
+                float angle = progress * max_angle;
+                mat2 rotate = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
+                coords = rotate * coords;
+
+                // Transform the coordinates back.
+                coords_geo = vec3(coords / size_geo.xy + vec2(0.5, 1.0), 1.0);
+
+                // Sample the window texture.
+                vec3 coords_tex = niri_geo_to_tex * coords_geo;
+                vec4 color = texture2D(niri_tex, coords_tex.st);
+
+                // Multiply by alpha to fade out.
+                return color * (1.0 - niri_clamped_progress);
+            }
+        "
+    }
+}
+
+// Window rules
+
+window-rule {
+    min-height 400
+    min-width 420
+}
+
+window-rule {
+	geometry-corner-radius 6
+	clip-to-geometry true
+}
+
+hotkey-overlay {
+	skip-at-startup
+}
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width { proportion 0.3; }
+}
+
+window-rule {
+    match app-id="kitty"
+    default-column-width { proportion 0.3; }
+}
+window-rule {
+	match app-id="com.mitchellh.ghostty"
+	default-column-width { proportion 0.3; }
+}
+window-rule {
+    match app-id="firefox"
+    default-column-width { fixed 1425; }
+    /-open-on-output "HDMI-A-1"
+    draw-border-with-background true    
+}
+window-rule {
+	match app-id="org.kde.dolphin"
+    default-column-width { proportion 0.4; }
+}
+window-rule {
+    match app-id="vesktop"
+    default-column-width { fixed 920; }
+    open-maximized true
+    open-on-output "DP-1"
+}
+window-rule {
+    match app-id="code"
+    default-column-width { fixed 920; }
+    open-maximized true
+}
+window-rule {
+    match app-id="org.kde.dolphin"
+    default-column-width { proportion 0.75; }
+}
+
+window-rule {
+    match title="Friends List" app-id="steam"
+    default-column-width { fixed 340; }
+}
+
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+binds {
+    // shows a list of important hotkeys.
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // Suggested binds for running programs: terminal, app launcher, screen locker.
+    Mod+Return { spawn "wezterm"; }
+	Mod+Shift+Space { toggle-window-floating; }
+    Mod+Space { spawn "fuzzel"; } 
+    //Mod+Space { spawn "rofi" "-show" "drun"; }
+    Mod+E { spawn "dolphin"; }
+    Mod+O { toggle-overview; }
+    Super+Shift+L { spawn "hyprlock"; }
+    Mod+V { spawn "clapboard"; }
+
+    // Example volume keys mappings for PipeWire & WirePlumber.
+    // The allow-when-locked=true property makes them work even when the session is locked.
+    //XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    //XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    //XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    //XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    //XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next"; }
+    //XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous"; }
+    //XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause"; }
+
+    Mod+Q { close-window; }
+    Mod+W { toggle-column-tabbed-display; }
+
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+L     { focus-column-right; }
+
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Down  { move-window-down; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Right { move-column-right; }
+    Mod+Ctrl+H 	   { move-column-left; }
+    Mod+Ctrl+J     { move-window-down; }
+    Mod+Ctrl+K     { move-window-up; }
+    Mod+Ctrl+L     { move-column-right; }
+
+    // Alternative commands that move across workspaces when reaching
+    // the first or last window in a column.
+    // Mod+J     { focus-window-or-workspace-down; }
+    // Mod+K     { focus-window-or-workspace-up; }
+    // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
+    // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
+
+    Mod+Alt+H { focus-column-first; }
+    Mod+Alt+L  { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
+
+    Mod+Shift+Left  { focus-monitor-left; }
+    Mod+Shift+Down  { focus-monitor-down; }
+    Mod+Shift+Up    { focus-monitor-up; }
+    Mod+Shift+Right { focus-monitor-right; }
+    //Mod+Shift+H     { focus-monitor-left; }
+    //Mod+Shift+J     { focus-monitor-down; }
+    //Mod+Shift+K     { focus-monitor-up; }
+    //Mod+Shift+L     { focus-monitor-right; }
+
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    //Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    //Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    //Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    //Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+    // Alternatively, there are commands to move just a single window:
+    // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
+    // ...
+
+    // And you can also move a whole workspace to another monitor:
+    // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
+    // ...
+
+    Mod+Page_Down      { focus-workspace-down; }
+    Mod+Page_Up        { focus-workspace-up; }
+    //Mod+U              { focus-workspace-down; }
+    //Mod+I              { focus-workspace-up; }
+    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+    //Mod+Ctrl+U         { move-column-to-workspace-down; }
+    //Mod+Ctrl+I         { move-column-to-workspace-up; }
+
+    // Alternatively, there are commands to move just a single window:
+    // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
+    // ...
+
+    Mod+Shift+Page_Down { move-workspace-down; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
+    //Mod+Shift+U         { move-workspace-down; }
+    //Mod+Shift+I         { move-workspace-up; }
+
+    // You can bind mouse wheel scroll ticks using the following syntax.
+    // These binds will change direction based on the natural-scroll setting.
+    //
+    // To avoid scrolling through workspaces really fast, you can use
+    // the cooldown-ms property. The bind will be rate-limited to this value.
+    // You can set a cooldown on any bind, but it's most useful for the wheel.
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    //WheelScrollRight      { focus-column-right; }
+    //Mod+WheelScrollLeft       { focus-column-left; }
+    //Mod+Ctrl+WheelScrollRight { move-column-right; }
+    //Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+    // Usually scrolling up and down with Shift in applications results in
+    // horizontal scrolling; these binds replicate that.
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    // Similarly, you can bind touchpad scroll "ticks".
+    // Touchpad scrolling is continuous, so for these binds it is split into
+    // discrete intervals.
+    // These binds are also affected by touchpad's natural-scroll, so these
+    // example binds are "inverted", since we have natural-scroll enabled for
+    // touchpads by default.
+    // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
+    // Mod+TouchpadScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
+
+    // Focus workspaces
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    // Alternatively, there are commands to move just a single window:
+    // Mod+Ctrl+1 { move-window-to-workspace 1; }
+
+    // Switches focus between the current and the previous workspace.
+    // Mod+Tab { focus-workspace-previous; }
+
+    // Consume/expel windows together (combine with tab functionality) Super+W
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    // There are also commands that consume or expel a single window to the side.
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+Ctrl+R { reset-window-height; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+C { center-column; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    // Finer height adjustments when in column with other windows.
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+P { screenshot; }
+    Mod+Shift+S { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+    Mod+Shift+R { spawn "fish" "-c" "wl-screenrec -f ~/Videos/Screenrecs/screenrec-$(math 1 + $(ls ~/Videos/Screenrecs/ | count)).mp4 -g $(slurp -d -F \"Mononoki Nerd Font Mono\" -c \"#8bf6d4\") -b 3MB --audio --audio-device alsa_output.pci-0000_08_00.3.analog-stereo.monitor"; }
+    Mod+Shift+Ctrl+R { spawn "fish" "-c" "killall wl-screenrec && notify-send \"wl-screenrec\" \"Finished recording.\""; }
+
+    // The quit action will show a confirmation dialog to avoid accidental exits.
+    Mod+Shift+E { quit; }
+
+    // Powers off the monitors. To turn them back on, do any input like
+    // moving the mouse or pressing any other key.
+    Mod+Shift+P { power-off-monitors; }
+}

@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+     # inputs.mangowc.nixosModules.default
     ];
 
   # Enable sudo
@@ -59,10 +60,26 @@
 
   # Enable SDDM
   #services.xserver.displayManager.sddm.enable = true;
+  #
+  # Add entry to SDDM
+  services.xserver.displayManager.sessionPackages = [ pkgs.mangowc ];
+
+  # Enable Awesome
+  #services.xserver.windowManager.awesome.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+
+  # Enable XFCE
+  services.xserver.desktopManager.xfce.enable = true;
+
+
+  # Enable COSMIC
+  #services.desktopManager.cosmic.enable = true;
+  # Enable COSMIC greeter
+  # services.displayManager.cosmic-greeter.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -105,27 +122,40 @@
 
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
   # Hyprland Setup
   programs.hyprland.enable = true;
 
+  # Niri
+  programs.niri.enable = true;
+  programs.xwayland.enable = true;
+
   # Sway Setup
   programs.sway = {
 	enable = true;
-	package = pkgs.swayfx;
+	wrapperFeatures.gtk = true;
   };
 
+  
   # Enable ZSH
   #programs.zsh.enable = true;
+  #programs.zsh.autosuggestions.enable;
   #users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
   	enable = true;
-  	enableAutosuggestions = true;
+  	autosuggestions.enable = true;
   	#ohMyZsh.enable = true;
   	#ohMyZsh.plugins = [ "git" ];
   	#ohMyZsh.theme = "frisk";
   	syntaxHighlighting.enable = true;
+  };
+
+  # For Firefox's Progressive Web Apps Extension
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox;
+    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   };
 
   # Fix GTK issues in Hyprland/Sway
@@ -142,60 +172,98 @@
    ];
 
 
-  # BOINC (Distributed computing)
-  #services.boinc.enable = true;
-  #services.boinc.extraEnvPackages = [ pkgs.libglvnd pkgs.brotli ];
- 
+  #MangoWC
+  #programs.mango.enable = true;
+  
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  	vim
+  #vim
 	htop
 	git
 	fastfetch
 	ghostty
-	featherpad
-	python3Full
+	#featherpad
+	#python3Full
 	fzf
 	pkgs.kitty
-	rofi-wayland
+	#rofi-wayland
+	rofi
 	pkgs.btop
 	killall
 	pkgs.bat
 	wl-clipboard # clipboard manager in Sway
 	waybar
-	swayrbar
+	#swayrbar
 	hyprpaper
 	nerd-fonts.hack
 	pamixer
 	brightnessctl
 	hyprsunset
 	hyprlock
-        hyprshot
+  hyprshot
 	nwg-look
 	dconf
 	dconf-editor
 	kdePackages.qt6ct
 	transmission_4-gtk
-	#winetricks
-	#wineWowPackages.waylandFull
 	swaybg
 	wlroots_0_19
 	gammastep
+	redshift
 	geoclue2
-	#neovim
+	neovim
 	wezterm
 	tmux
-	dfc
 	pavucontrol
 	dysk
 	gnome-calendar
+	xwayland-satellite
+  obsidian
+	#todoist-electron
+	gcc
+	fuzzel
+	pyright
+	#sway
+	swayfx
+	wlsunset
+	#brightnessctl
+	wget
+	unzip
+	#joplin-desktop
+	mission-center
+	cmatrix
+	kde-rounded-corners
+	xclicker
+	nerd-fonts.jetbrains-mono
+	wget
+	#rustup
+	cargo
+	rust-analyzer
+	gcc
+	openssl
+	steam-run
+	helix
+	lldb
+	lazygit
+	xivlauncher
+  cmake
+  extra-cmake-modules
+  gnumake42
+  vicinae
+  scenefx
+  mangowc
+	#pkgs.firefoxpwa # for Progressive Web App extension
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
+nixpkgs.config.permittedInsecurePackages = [
+  "broadcom-sta-6.30.223.271-59-6.12.63"
+];
+ 
+ # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
@@ -224,5 +292,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
