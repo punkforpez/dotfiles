@@ -22,23 +22,21 @@ alias nixbuild='sudo nixos-rebuild switch'
 alias nixclean='sudo nix-collect-garbage -d'
 alias nixtest='nix-shell -p'
 
-# Hyprland/Niri related
-alias redshift='hyprctl hyprsunset temperature 4500'
-alias blueshift='hyprctl hyprsunset temperature 6500'
+alias mangoconf='hx ~/.config/mango/config.conf'
+
+# Hyprland/Niri/Sway related
+alias redshift='hyprctl hyprsunset temperature 3800'
+alias blueshift='hyprctl hyprsunset temperature 6000'
 alias waybar-reload='pkill waybar && hyprctl dispatch exec waybar'
-alias red='wlsunset -o DP-1 -g 0.9 &'
+alias red='wlsunset -o DP-1 -g 0.92 &'
+alias day='wlsunset -o DP-1 -g 1 -t 4100 &'
+alias night='wlsunset -o DP-1 -g 1 -t 3800 &'
 alias red-night='wlsunset -o DP-1 -g 0.75 &'
 alias blue='pkill wlsunset'
 #alias red='gammastep -O 4000 &' # manual use for Sway
 #alias blue='gammastep -O 5000 &' # manual use for Sway
 
-# Arch Linux  related
-#alias pacman='sudo pacman'
-#alias pacrm='sudo pacman -Rs'
-#alias pacq='sudo pacman -Q'
-#alias pacorph='sudo pacman -Rns $(pacman -Qtdq)'
-
-# Debian related
+# Debian related;
 #alias apt='sudo apt'
 #alias nala='sudo nala' # better wrapper for Apt, in main Debian repo
 
@@ -58,15 +56,14 @@ export PATH
 #alias f='fzf'
 alias ls="ls --color=auto"
 alias cl="clear; ls"
-alias vi='nvim'
+alias vi='hx'
 alias psa="ps aux"
 alias kk="uname -mrs"
 alias clp="clear;ls;pwd"
 alias p3="ping -c 3"
-alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/nix2.png"
+alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/nix-color.png"
 alias matrix="cmatrix -abu 6"
 #alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/cat.png"
-#alias sfa='clear; echo; fastfetch; echo;'
 
 # Utility 
 alias mem='top -l1 | grep PhysMem'
