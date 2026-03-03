@@ -1,7 +1,7 @@
 {
     "layer": "top",
-    "height": 28,
-    "modules-left": ["custom/launcher","ext/workspaces", "dwl/window"],
+    "height": 25,
+    "modules-left": ["custom/launcher","sway/workspaces"],
 	//"modules-center": ["clock"],
     "modules-right": ["tray","pulseaudio","custom/vpn","network","clock"],
     "hyprland/workspaces": {
@@ -89,13 +89,6 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
-    },
-    "dwl/window": {
-        "format": " [{layout}] "
-    },
-    "ext/workspaces": {
-        "on-click": "activate",
-        "on-click-right": "deactivate",
     },
     "custom/vpn": {
 	   "format": " {icon}",

@@ -10,25 +10,10 @@
 }
 
 window#waybar {
-    /* background: transparent; */
-    /* background-color: #11111b; */
-    background-color: rgba(0,0,0,0.5);
-    /* background-color: #1e1e2e; */ 
+    background-color: #1e1e2e;;
     border: none;
     color: #ebdbb2;
-    /*color: #ebdbb2; */
     box-shadow: none;
-}
-
-.modules-left,
-/* .modules-center, */
-.modules-right {
-    margin: 0px 0px 0px 0px;
-    padding: 0px 8px;
-    background-color: rgba(0,0,0,0);
-    border: 0px solid rgba(153, 109, 219, 0.2);
-    border-radius: 2px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 window#waybar.hidden {
@@ -64,13 +49,12 @@ window#waybar.hidden {
 
 /* === Centered Window Title === */
 #window {
-    background-color: rgba(0,0,0,0);
-    /* background-color: #3c3836; */
+    background-color: #3c3836;
     color: #ebdbb2;
-    padding: 0 15px;
+    padding: 0 20px;
     border-radius: 10px;
     margin: 0 12px;
-    /* font-weight: bold; */
+    font-weight: bold;
 }
 
 /* === Modules === */
@@ -80,11 +64,11 @@ window#waybar.hidden {
 #network,
 #idle_inhibitor,
 #pulseaudio {
-    background-color: rgba(0,0,0,0);
+    background-color: #2E3440;
     color: #ebdbb2;
     padding: 0 10px;
     margin: 0;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 #battery.charging,
