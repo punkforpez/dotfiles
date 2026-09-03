@@ -13,56 +13,28 @@
     {
       "type": "os",
       "key": "OS  ",
-      "keyColor": "32",
+      "keyColor": "35",
     },
     {
       "type": "kernel",
       "key": "KER ",
-      "keyColor": "32",
+      "keyColor": "35",
     },
     {
       "type": "uptime",
       "key": "UP  ",
-      "keyColor": "32",
+      "keyColor": "35",
     },
     {
       "type": "packages",
       "key": "PKG ",
-      "keyColor": "32",
+      "keyColor": "35",
     },
     {
       "type": "shell",
       "key": "SH  ",
-      "keyColor": "32",
-    },
-    {
-      "type": "de",
-      "key": "DE  ",
-      "keyColor": "32",
-    },
-    "break",
-    {
-      "type": "cpu",
-      "key": "CPU ",
-      "keyColor": "31",
-    },
-    {
-      "type": "gpu",
-      "key": "GPU ",
-      "keyColor": "31",
-    },
-    {
-      "type": "memory",
-      "key": "MEM ",
-      "keyColor": "31",
-    },
-    {
-      "type": "disk",
-      "key": "SSD ",
-      "keyColor": "31",
-    },
-    
-    "break",   
+      "keyColor": "35",
+    },   
     //"shell",
     //"display",
     //"de",

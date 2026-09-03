@@ -5,8 +5,11 @@
 PS1='%F{cyan}%m %f%b%# '
 
 # Boring $PATH business:
-export PATH="/run/wrappers/bin:/run/current-system/sw/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/local/bin"a
-
+export PATH="/run/wrappers/bin:/run/current-system/sw/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/local/bin"
+#export XCURSOR_THEME="breeze_cursors"
+#export XCURSOR_SIZE="24"
+#export QT_QPA_PLATFORM="wayland;xcb"
+#export QT_QPA_PLATFORMTHEME="qt6ct"
 # For Homebrew (uncomment on MacOS / NixOS will spit out errors if active
 #export PATH="/opt/homebrew/bin:$PATH"
 
@@ -14,15 +17,19 @@ export PATH="/run/wrappers/bin:/run/current-system/sw/bin:/usr/local/bin:/usr/bi
 alias h="cd ~"
 alias up="cd .."
 alias ddl='cd ~/Downloads; clear; pwd; ls'
-alias cdc='cd ~/.config/; pwd'
+alias cdc="cd ~/.config/; pwd"
 
 # nixOS Related
-alias nixedit='sudo hx /etc/nixos/configuration.nix'
-alias nixbuild='sudo nixos-rebuild switch'
-alias nixclean='sudo nix-collect-garbage -d'
-alias nixtest='nix-shell -p'
+#alias nixedit='sudo hx /etc/nixos/configuration.nix'
+#alias nixbuild='sudo nixos-rebuild switch'
+#alias nixclean='sudo nix-collect-garbage -d'
+#alias nixtest='nix-shell -p'
 
-alias mangoconf='hx ~/.config/mango/config.conf'
+# Configure Mango WM
+#alias mangoconf='hx ~/.config/mango/config.conf'
+
+# Fedora Related
+alias dnf='sudo dnf'
 
 # Hyprland/Niri/Sway related
 alias redshift='hyprctl hyprsunset temperature 3800'
@@ -30,7 +37,8 @@ alias blueshift='hyprctl hyprsunset temperature 6000'
 alias waybar-reload='pkill waybar && hyprctl dispatch exec waybar'
 alias red='wlsunset -o DP-1 -g 0.92 &'
 alias day='wlsunset -o DP-1 -g 1 -t 4100 &'
-alias night='wlsunset -o DP-1 -g 1 -t 3800 &'
+alias night='wlsunset -t 18:00 -S 06:00 -t 4000 -T 6000 &'
+#alias night='wlsunset -o DP-1 -g 1 -t 3900 &'
 alias red-night='wlsunset -o DP-1 -g 0.75 &'
 alias blue='pkill wlsunset'
 #alias red='gammastep -O 4000 &' # manual use for Sway
@@ -61,7 +69,7 @@ alias psa="ps aux"
 alias kk="uname -mrs"
 alias clp="clear;ls;pwd"
 alias p3="ping -c 3"
-alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/nix-color.png"
+alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/squirtle2.png"
 alias matrix="cmatrix -abu 6"
 #alias sf="clear; fastfetch --kitty-direct ~/.config/fastfetch/cat.png"
 

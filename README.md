@@ -8,9 +8,14 @@ My primary computer runs NixOS and most of the dotfiles are tailored to this sys
 ![KDE](images/kde.png)
 
 ## Fedora 44
-I have recently made the switch back to Fedora for my main Linux install. It's been a while since I've been properly on Fedora and it's like coming home fro ma long journey.
+> I have recently made the switch back to Fedora for my main Linux install. It's been a while since I've been properly on Fedora and it's like coming home fro ma long journey.
+
+I use both KDE Plasma and MangoWM for my desktop setup, primarily operating with mango, since it's just incredible.
 
 ![MangoWM](images/fedora-mango.png)
+
+## The Setup
+- [mangowm](https://github.com/mangowm/mango)
 
 
 ## MacOS
