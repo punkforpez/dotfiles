@@ -10,6 +10,9 @@ My primary computer runs NixOS and most of the dotfiles are tailored to this sys
 ## Fedora 44
 I have recently made the switch back to Fedora for my main Linux install. It's been a while since I've been properly on Fedora and it's like coming home fro ma long journey.
 
+![MangoWM](images/fedora-mango.png)
+
+
 ## MacOS
 I use MacOS primarily for my day job but also like to keep a development setup on hand.
 
