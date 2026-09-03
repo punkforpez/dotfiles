@@ -15,7 +15,31 @@ I use both KDE Plasma and MangoWM for my desktop setup, primarily operating with
 ![MangoWM](images/fedora-mango.png)
 
 ## The Setup
-- [mangowm](https://github.com/mangowm/mango)
+
+### Desktop Essentials
+- [mangowm](https://github.com/mangowm/mango): The true "GOAT" of Wayland compositors, for me. This is the perfect comnbination of all the usual suspects; Hyprland, Niri, Sway. Truly an amazing experience and easy to configure.
+- [Noctalia shell](https://github.com/noctalia-dev/noctalia): This shell truly changed the entire game of Wayland compositors for me. Waybar is a nice fall back, but man this thing is wonderful. 
+- [Kitty](https://github.com/kovidgoyal/kitty): I just always go back to Kitty. Masterpiece.
+
+### Main Software
+- Firefox
+- Steam
+- Kate: God I love this program.
+- Obsidian
+- Spotify
+- qbittorrent
+- Telegram
+- Vesktop
+- Dolphin
+- Joplin
+
+### Terminal Software and Configuration
+- zsh: There is no other.
+- helix
+- tmux
+- yazi
+- btop
+- git
 
 
 ## MacOS
