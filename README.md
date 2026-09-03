@@ -7,7 +7,11 @@
 
 I use both KDE Plasma and MangoWM for my desktop setup, primarily operating with mango, since it's just incredible.
 
+### Mango, main desktop with a scratchpad kitty terminal displaying fastfetch
 ![MangoWM](images/fedora-mango.png)
+
+### First desktop (currently set to "scrolling" (ala niri)) mode.
+![mango-scrolling](images/mango-scrolling.png)
 
 ## The Setup
 
