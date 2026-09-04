@@ -45,7 +45,8 @@ I use both KDE Plasma and MangoWM for my desktop setup, primarily operating with
 I use MacOS primarily for my day job but also like to keep a development setup on hand.
 
 ## Helix
-This amazing little editor has completely replaced nvim, Kate, Zed and VSCode for me. I am extremely happy with how Helix has wedged into my life.
 
-[Helix config](.config/helix/config.toml)
+> This amazing little editor has completely replaced nvim, Kate, Zed and VSCode for me. I am extremely happy with how Helix has wedged into my life.
 
+- [Helix config](.config/helix/config.toml)
+![helix](images/helix.png)
